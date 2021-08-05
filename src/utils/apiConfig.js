@@ -17,3 +17,16 @@ export const POST_LOGIN = (username, email, password) => ({
     }),
   },
 })
+
+export const POST_REGISTER = (username, email, password) => ({
+  url: BASE_URL + '/user/adduser',
+  options: {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      username,
+      email,
+      password,
+    }),
+  },
+})

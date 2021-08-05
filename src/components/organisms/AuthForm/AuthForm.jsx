@@ -41,7 +41,7 @@ function AuthForm({ title, submit }) {
           required
         ></Input>
 
-        <Button type="submit" value="logar" />
+        <Button type="submit" value={title} />
       </form>
     </section>
   )
