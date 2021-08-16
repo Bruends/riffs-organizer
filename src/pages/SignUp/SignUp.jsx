@@ -17,7 +17,7 @@ function SignUp() {
     }
   }
 
-  return <AuthForm title="Registrar" submit={signup}></AuthForm>
+  return <AuthForm title="Registrar" type="register" submit={signup}></AuthForm>
 }
 
 export default SignUp

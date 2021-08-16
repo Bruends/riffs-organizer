@@ -1,3 +1,8 @@
+/**
+ * funções que retornam um objeto de configuração
+ * para chamadas de API (fetch)
+ */
+
 const BASE_URL = 'http://localhost:3300/booksapi'
 
 const headers = {
@@ -5,13 +10,13 @@ const headers = {
   'Content-Type': 'application/json',
 }
 
-export const POST_LOGIN = (username, email, password) => ({
+//Rotas de Autenticação
+export const POST_LOGIN = (email, password) => ({
   url: BASE_URL + '/user/login',
   options: {
     method: 'POST',
     headers,
     body: JSON.stringify({
-      username,
       email,
       password,
     }),

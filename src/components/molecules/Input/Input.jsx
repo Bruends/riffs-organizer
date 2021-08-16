@@ -1,11 +1,12 @@
 import React from 'react'
-import { LabelStyle, InputStyle } from './style'
+import { LabelStyle, InputStyle, ErrorSpan } from './style'
 
-function Input({ id, title, ...props }) {
+function Input({ id, label, error, ...props }) {
   return (
     <>
-      <LabelStyle htmlFor={id}>{title}</LabelStyle>
+      <LabelStyle htmlFor={id}>{label}</LabelStyle>
       <InputStyle {...props} id={id} name={id} />
+      <ErrorSpan>{error}</ErrorSpan>
     </>
   )
 }

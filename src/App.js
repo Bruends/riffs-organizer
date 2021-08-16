@@ -1,25 +1,13 @@
-import Login from './pages/Login/Login'
-import SignUp from './pages/SignUp/SignUp'
-import Dashboard from './pages/Dashboard/Dashboard'
+import React from 'react'
 import GlobalStyle from './globalStyle'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import MainRouter from './routes/MainRouter'
 
 function App() {
   return (
-    <Router>
+    <>
       <GlobalStyle />
-      <Switch>
-        <Route exact path="/">
-          <Login />
-        </Route>
-        <Route path="/signup">
-          <SignUp />
-        </Route>
-        <Route path="/dashboard">
-          <Dashboard />
-        </Route>
-      </Switch>
-    </Router>
+      <MainRouter />
+    </>
   )
 }
 
