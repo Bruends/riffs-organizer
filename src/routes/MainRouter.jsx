@@ -9,7 +9,6 @@ import {
   Redirect,
 } from 'react-router-dom'
 
-import useLocalStorage from '../Hooks/useLocalStorage'
 import useAuth from '../Hooks/useAuth'
 
 function MainRouter() {
