@@ -1,11 +1,13 @@
 import React from 'react'
+import { Wrapper, Cover, Title, ShortDescription } from './style'
 
-const Book = ({ title }) => {
+function Book({ title, description }) {
   return (
-    <>
-      <h1>hi</h1>
-      <div></div>
-    </>
+    <Wrapper>
+      <Cover src="/imgs/cover.jpg" />
+      <Title>{title}</Title>
+      <ShortDescription>{description}</ShortDescription>
+    </Wrapper>
   )
 }
 

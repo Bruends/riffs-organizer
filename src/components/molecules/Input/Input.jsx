@@ -4,9 +4,9 @@ import { LabelStyle, InputStyle, ErrorSpan } from './style'
 function Input({ id, label, error, ...props }) {
   return (
     <>
-      <LabelStyle htmlFor={id}>{label}</LabelStyle>
+      {label ? <LabelStyle htmlFor={id}>{label}</LabelStyle> : null}
       <InputStyle {...props} id={id} name={id} />
-      <ErrorSpan>{error}</ErrorSpan>
+      {error ? <ErrorSpan>{error}</ErrorSpan> : null}
     </>
   )
 }

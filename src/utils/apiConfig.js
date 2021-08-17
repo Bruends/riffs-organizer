@@ -10,7 +10,7 @@ const headers = {
   'Content-Type': 'application/json',
 }
 
-//Rotas de Autenticação
+// === Configuração Rotas de Autenticação ===
 export const POST_LOGIN = (email, password) => ({
   url: BASE_URL + '/user/login',
   options: {
@@ -33,5 +33,16 @@ export const POST_REGISTER = (username, email, password) => ({
       email,
       password,
     }),
+  },
+})
+
+// === Configuração rotas de livros (CRUD)
+export const GET_BOOKS = (token) => ({
+  url: BASE_URL + '/books/all',
+  options: {
+    method: 'GET',
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
   },
 })

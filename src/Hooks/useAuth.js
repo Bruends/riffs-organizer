@@ -22,7 +22,7 @@ const useAuth = () => {
     } catch (error) {
       console.log(error.message)
     }
-  })
+  }, [])
 
   const logout = () => {
     setStorage('')
