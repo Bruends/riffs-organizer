@@ -75,7 +75,7 @@ export const LinkWrapper = styled.div`
     background-color: var(--dash-menubg);
 
     &:hover {
-      filter: brightness(115%);
+      background-color: var(--main-color);
     }
 
     @media (max-width: 768px) {

@@ -43,3 +43,16 @@ export const Title = styled.h1`
     border-radius: 10px;
   }
 `
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: right;
+  padding: 2rem;
+
+  button {
+    display: block;
+    margin: 0 0.1rem;
+  }
+`
