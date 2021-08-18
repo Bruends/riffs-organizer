@@ -43,6 +43,55 @@ export const GET_BOOKS = (token) => ({
     method: 'GET',
     headers: {
       authorization: `Bearer ${token}`,
+      ...headers,
     },
+  },
+})
+
+export const POST_ADDBOOK = (token, title, description) => ({
+  url: BASE_URL + '/books/add',
+  options: {
+    method: 'POST',
+    headers: {
+      authorization: `Bearer ${token}`,
+      ...headers,
+    },
+    body: JSON.stringify({
+      book: {
+        title,
+        description,
+      },
+    }),
+  },
+})
+
+export const PUT_UPDATEBOOK = (token, _id, title, description) => ({
+  url: BASE_URL + '/books/update',
+  options: {
+    method: 'PUT',
+    headers: {
+      authorization: `Bearer ${token}`,
+      ...headers,
+    },
+    body: JSON.stringify({
+      book: {
+        _id,
+        title,
+        description,
+      },
+    }),
+  },
+})
+
+export const DELETE_BOOK = (token, _id) => ({
+  url: BASE_URL + '/books/delete',
+  options: {
+    method: 'DELETE',
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      _id,
+    }),
   },
 })

@@ -8,8 +8,6 @@ import {
 } from './style'
 
 const Modal = ({ isModalOpen, setModalOpen, children }) => {
-  console.log(isModalOpen)
-
   return (
     <ModalBackground isModalOpen={isModalOpen}>
       <ModalWrapper>

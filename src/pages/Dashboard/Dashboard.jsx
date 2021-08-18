@@ -1,14 +1,16 @@
 import React from 'react'
 import { ContentWrapper } from './style'
 import Menu from './components/Menu/Menu'
-import AllBooks from './AllBooks/AllBooks'
+import AllBooksContainer from './AllBooks/AllBooksContainer'
+import ModalForm from '../../components/organisms/ModalForm/ModalForm'
+import Modal from '../../components/molecules/Modal/Modal'
 
-function Dashboard(props) {
+function Dashboard() {
   return (
     <>
       <Menu />
       <ContentWrapper>
-        <AllBooks />
+        <AllBooksContainer />
       </ContentWrapper>
     </>
   )

@@ -4,8 +4,9 @@ export const ModalBackground = styled.div`
   display: ${(props) => (props.isModalOpen ? 'block' : 'none')};
   z-index: 20;
   position: absolute;
-  min-width: 100vw;
   min-height: 100vh;
+  width: 100vw;
+  left: 0;
   background: rgba(0, 0, 0, 0.8);
   font-family: var(--main-font);
 `
@@ -43,11 +44,11 @@ export const ModalCloseButton = styled.button`
   top: 0;
   font-weight: bold;
   background-color: #fff;
-  color: var(--dash-detail);
+  color: #222;
   cursor: pointer;
 
   &:hover {
-    background-color: var(--dash-detail);
+    background-color: var(--main-color);
     color: #fff;
     transition: 0.5s;
   }

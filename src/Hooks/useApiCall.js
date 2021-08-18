@@ -14,12 +14,16 @@ const useApiCall = () => {
 
       response = await fetch(url, options)
       json = await response.json()
-      console.log(json)
+      // console.log(json)
       // erros
       if (json.auth === false) throw new Error(json.error)
-      if (!response.ok) throw new Error(json.error)
+      if (!response.ok) {
+        console.log(json.error)
+        throw new Error(json.error)
+      }
     } catch (error) {
       json = null
+      console.log(error.message)
       setError(error.message)
     } finally {
       setData(json)
