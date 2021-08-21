@@ -1,24 +1,33 @@
 import React from 'react'
 import { Title } from './style'
-
 import Input from '../../molecules/Input/Input'
 import Button from '../../../components/atoms/Button/Button'
 import TextArea from '../../atoms/TextArea/TextArea'
-import useLocalStorage from '../../../Hooks/useLocalStorage'
+import Modal from '../../molecules/Modal/Modal'
 
 function ModalForm(props) {
+  const [_id, setId] = React.useState('old')
   const [title, setTitle] = React.useState('')
   const [description, setDescription] = React.useState('')
-  const [token] = useLocalStorage('token', '')
 
-  const handleSubmit = (event) => {
+  React.useEffect(() => {
+    if (props.book) {
+      console.log(props.book)
+      setId(props.book._id)
+      setTitle(props.book.title)
+      setDescription(props.book.description)
+    }
+    console.log(props.book)
+  }, [props.book])
+
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    props.submit(token, title, description)
+    await props.submit({ _id, title, description })
   }
 
   return (
-    <div>
-      <Title> {props.title} </Title>
+    <Modal isModalOpen={props.modal} setModalOpen={props.setModal}>
+      <Title> {props.modalTitle} </Title>
       <form onSubmit={handleSubmit}>
         <Input
           value={title}
@@ -36,7 +45,7 @@ function ModalForm(props) {
 
         <Button value={props.buttonTitle} type="submit" />
       </form>
-    </div>
+    </Modal>
   )
 }
 

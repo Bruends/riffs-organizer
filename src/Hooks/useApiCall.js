@@ -13,7 +13,11 @@ const useApiCall = () => {
       setLoading(true)
 
       response = await fetch(url, options)
+      console.log('---------api call config')
+      console.log(options)
       json = await response.json()
+      console.log(response)
+      console.log(json)
       // console.log(json)
       // erros
       if (json.auth === false) throw new Error(json.error)

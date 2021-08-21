@@ -1,30 +1,54 @@
 import React from 'react'
 import { useBooksApi } from '../../../Hooks/useBooksApi'
-import useLocalStorage from '../../../Hooks/useLocalStorage'
-import AllBooks from './AllBooks'
+import { useParams } from 'react-router-dom'
+import Book from '../components/Book/Book'
+import { BooksWrapper } from './Style'
 import TopToolBar from '../components/TopToolBar/TopToolBar'
+import AddModalForm from '../../../components/organisms/ModalForm/ModalForm'
 
-function AllBooksContainer() {
+function AllBooksContainer({ books, setBooks }) {
   const { allBooks, addBook, refresh } = useBooksApi()
-  const [token] = useLocalStorage('token', '')
-  const [books, setBooks] = React.useState([])
   const [search, setSearch] = React.useState('')
+  const [addModal, setaddModal] = React.useState(false)
+
+  const { id } = useParams()
 
   React.useEffect(() => {
     // pegando livros da api
-    const fetchBooks = async (token) => {
-      if (token) {
-        const apiBooks = await allBooks(token)
-        setBooks(apiBooks)
-      }
+    const fetchBooks = async () => {
+      const apiBooks = await allBooks()
+      setBooks(apiBooks)
     }
-    fetchBooks(token)
+    fetchBooks()
   }, [refresh])
 
   return (
     <>
-      <TopToolBar search={search} setSearch={setSearch} addBook={addBook} />
-      <AllBooks search={search} setSearch={setSearch} books={books} />
+      <AddModalForm
+        modalTitle="Novo Livro"
+        modal={addModal}
+        setModal={setaddModal}
+        buttonTitle="Salvar"
+        submit={addBook}
+      />
+
+      <TopToolBar
+        search={search}
+        setSearch={setSearch}
+        addModal={setaddModal}
+      />
+
+      <BooksWrapper>
+        {search
+          ? // resultado da pesquisa
+            books.map((book) => {
+              const title = book.title.toLowerCase()
+              if (title.includes(search))
+                return <Book key={book._id} {...book} />
+            })
+          : // todos os livros
+            books.map((book) => <Book key={book._id} {...book} />)}
+      </BooksWrapper>
     </>
   )
 }

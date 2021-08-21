@@ -51,8 +51,19 @@ export const ButtonWrapper = styled.div`
   justify-content: right;
   padding: 2rem;
 
-  button {
+  a {
     display: block;
-    margin: 0 0.1rem;
+    padding: 0.8rem 1rem;
+    background-color: var(--main-color);
+    color: #fff;
+    box-shadow: none;
+    border: none;
+    border-radius: 5px;
+    margin: 0.2rem;
+
+    &:hover {
+      filter: brightness(110%);
+      cursor: pointer;
+    }
   }
 `

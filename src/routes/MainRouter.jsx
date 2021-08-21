@@ -31,6 +31,9 @@ function MainRouter() {
         <Route path="/dashboard">
           {auth ? <Dashboard logout={logout} /> : <Redirect to="/" />}
         </Route>
+        <Route path="*">
+          <p>404</p>
+        </Route>
       </Switch>
     </Router>
   )
