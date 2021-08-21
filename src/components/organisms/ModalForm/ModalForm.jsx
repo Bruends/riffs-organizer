@@ -34,6 +34,7 @@ function ModalForm(props) {
           onChange={({ target }) => setTitle(target.value)}
           placeholder="Título do livro"
           required
+          readOnly={props.readOnly}
         ></Input>
 
         <TextArea
@@ -41,6 +42,7 @@ function ModalForm(props) {
           value={description}
           onChange={({ target }) => setDescription(target.value)}
           required
+          readOnly={props.readOnly}
         ></TextArea>
 
         <Button value={props.buttonTitle} type="submit" />

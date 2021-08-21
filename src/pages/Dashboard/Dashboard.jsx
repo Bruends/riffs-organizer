@@ -4,6 +4,7 @@ import Menu from './components/Menu/Menu'
 import AllBooksContainer from './AllBooks/AllBooksContainer'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
 import EditBook from './EditBook/EditBook'
+import DeleteBook from './DeleteBook/DeleteBook'
 
 function Dashboard() {
   let { path, url } = useRouteMatch()
@@ -20,6 +21,11 @@ function Dashboard() {
         <Route path={`${path}/edit/:id`}>
           <ContentWrapper>
             <EditBook books={books} />
+          </ContentWrapper>
+        </Route>
+        <Route path={`${path}/delete/:id`}>
+          <ContentWrapper>
+            <DeleteBook books={books} />
           </ContentWrapper>
         </Route>
         <Route path="*">

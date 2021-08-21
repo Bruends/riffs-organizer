@@ -1,6 +1,11 @@
 import React from 'react'
 import useApiCall from './useApiCall'
-import { GET_BOOKS, POST_ADDBOOK, PUT_UPDATEBOOK } from '../utils/apiConfig'
+import {
+  GET_BOOKS,
+  POST_ADDBOOK,
+  PUT_UPDATEBOOK,
+  DELETE_BOOK,
+} from '../utils/apiConfig'
 import useLocalStorage from './useLocalStorage'
 
 export const useBooksApi = () => {
@@ -36,8 +41,8 @@ export const useBooksApi = () => {
 
   const addBook = async ({ title, description }) => {
     console.log('====== add book')
-    await request(url, options)
     const { url, options } = POST_ADDBOOK(token, title, description)
+    await request(url, options)
     console.log(options)
     setRefresh(!refresh)
   }
@@ -51,11 +56,21 @@ export const useBooksApi = () => {
     setRefresh(!refresh)
   }
 
+  const deleteBook = async ({ _id }) => {
+    console.log('====== DELETE Book')
+    const { url, options } = DELETE_BOOK(token, _id)
+    console.log(options)
+    console.log(_id)
+    await request(url, options)
+    setRefresh(!refresh)
+  }
+
   return {
     allBooks,
     addBook,
     editBook,
     findBook,
+    deleteBook,
     refresh,
     loading,
     error,

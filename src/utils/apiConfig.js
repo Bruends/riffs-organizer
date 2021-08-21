@@ -89,6 +89,7 @@ export const DELETE_BOOK = (token, _id) => ({
     method: 'DELETE',
     headers: {
       authorization: `Bearer ${token}`,
+      ...headers,
     },
     body: JSON.stringify({
       _id,
