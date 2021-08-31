@@ -1,51 +1,75 @@
 import React from 'react'
-import { Title } from './style'
+import { Title, ButtonWrapper } from './style'
 import Input from '../../molecules/Input/Input'
 import Button from '../../../components/atoms/Button/Button'
-import TextArea from '../../atoms/TextArea/TextArea'
 import Modal from '../../molecules/Modal/Modal'
+import { useHistory } from 'react-router-dom'
 
-function ModalForm(props) {
-  const [_id, setId] = React.useState('old')
+function ModalForm({ music, submit, modal, setModal, modalTitle }) {
+  const [_id, setId] = React.useState('')
   const [title, setTitle] = React.useState('')
-  const [description, setDescription] = React.useState('')
+  const [tab, setTab] = React.useState('')
+  const [video, setVideo] = React.useState('')
+  let history = useHistory()
 
   React.useEffect(() => {
-    if (props.book) {
-      console.log(props.book)
-      setId(props.book._id)
-      setTitle(props.book.title)
-      setDescription(props.book.description)
+    if (music) {
+      setId(music._id)
+      setTitle(music.title)
+      setTab(music.tab)
+      setVideo(music.video)
     }
-    console.log(props.book)
-  }, [props.book])
+  }, [music])
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    await props.submit({ _id, title, description })
+    const newMusic = {
+      title,
+      tab,
+      video,
+    }
+    if (_id) newMusic._id = _id
+    await submit(newMusic)
+    history.push('/dashboard')
+  }
+
+  const handleCancel = (event) => {
+    event.preventDefault()
+    setModal(false)
+    history.push('/dashboard')
   }
 
   return (
-    <Modal isModalOpen={props.modal} setModalOpen={props.setModal}>
-      <Title> {props.modalTitle} </Title>
+    <Modal isModalOpen={modal} setModalOpen={setModal}>
+      <Title> {modalTitle} </Title>
       <form onSubmit={handleSubmit}>
         <Input
+          label="Título"
           value={title}
           onChange={({ target }) => setTitle(target.value)}
-          placeholder="Título do livro"
+          placeholder="Foo Fighters - Walk"
           required
-          readOnly={props.readOnly}
-        ></Input>
+        />
 
-        <TextArea
-          placeholder="Descrição..."
-          value={description}
-          onChange={({ target }) => setDescription(target.value)}
+        <Input
+          label="Youtube Link"
+          value={video}
+          onChange={({ target }) => setVideo(target.value)}
+          placeholder="https://www.youtube.com/watch?v=4PkcfQtibmU"
           required
-          readOnly={props.readOnly}
-        ></TextArea>
+        />
+        <Input
+          label="Tablatura"
+          value={tab}
+          onChange={({ target }) => setTab(target.value)}
+          placeholder="https://www.seusitedetabs.com/ffwalk"
+          required
+        />
 
-        <Button value={props.buttonTitle} type="submit" />
+        <ButtonWrapper>
+          <Button value="salvar" type="submit" />
+          <Button value="Cancelar" onClick={handleCancel} />
+        </ButtonWrapper>
       </form>
     </Modal>
   )

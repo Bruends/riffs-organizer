@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // icones font awesome
 import {
-  faBook,
+  faMusic,
   faUserCog,
   faCog,
   faOutdent,
@@ -23,15 +23,15 @@ const Menu = () => {
   return (
     <NavContainer>
       <LogoContainer>
-        <span>Books App</span>
+        <span>Guitar</span>
       </LogoContainer>
 
       <MenuContainer>
         <MenuItem>
           <LinkWrapper>
             <Link to="/dashboard">
-              <FontAwesomeIcon icon={faBook} />
-              <LinkText>Livros</LinkText>
+              <FontAwesomeIcon icon={faMusic} />
+              <LinkText>Músicas</LinkText>
             </Link>
           </LinkWrapper>
         </MenuItem>

@@ -17,6 +17,10 @@ export const LoginLeftBg = styled.div`
   padding: 0;
   background-image: url('/imgs/loginBg.jpg');
   background-size: cover;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 
 export const FormContainer = styled.div`

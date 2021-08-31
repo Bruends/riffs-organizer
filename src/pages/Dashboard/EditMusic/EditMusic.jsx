@@ -1,22 +1,19 @@
 import React from 'react'
 import EditModalForm from '../../../components/organisms/ModalForm/ModalForm'
 import { useParams } from 'react-router-dom'
-import { useBooksApi } from '../../../Hooks/useBooksApi'
+import { useMusicAPI } from '../../../Hooks/useMusicAPI'
 
-function EditBook({ books }) {
+function EditMusic({ musics }) {
   const [modal, setModal] = React.useState(true)
-  const { editBook } = useBooksApi()
-  const [book, setBook] = React.useState(null)
+  const { updateMusic } = useMusicAPI()
+  const [music, setMusic] = React.useState(null)
   const { id } = useParams()
 
   console.log(id)
 
   React.useEffect(() => {
-    const fetchBook = async () => {
-      const foundBook = books.filter((b) => b._id == id)
-      setBook(foundBook[0])
-    }
-    fetchBook()
+    const foundMusic = musics.filter((music) => music._id == id)
+    setMusic(foundMusic[0])
   }, [])
 
   return (
@@ -25,10 +22,10 @@ function EditBook({ books }) {
       modal={modal}
       setModal={setModal}
       buttonTitle="Salvar"
-      submit={editBook}
-      book={book}
+      submit={updateMusic}
+      music={music}
     />
   )
 }
 
-export default EditBook
+export default EditMusic

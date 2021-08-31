@@ -1,36 +1,36 @@
 import React from 'react'
 import { ContentWrapper } from './style'
 import Menu from './components/Menu/Menu'
-import AllBooksContainer from './AllBooks/AllBooksContainer'
+import AllMusics from './AllMusics/AllMusics'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
-import EditBook from './EditBook/EditBook'
-import DeleteBook from './DeleteBook/DeleteBook'
+import EditMusic from './EditMusic/EditMusic'
+import DeleteMusic from './DeleteMusic/DeleteMusic'
 
 function Dashboard() {
-  let { path, url } = useRouteMatch()
-  const [books, setBooks] = React.useState([])
+  let { path } = useRouteMatch()
+  const [musics, setMusics] = React.useState([])
   return (
     <>
       <Menu />
       <Switch>
         <Route exact path={path}>
           <ContentWrapper>
-            <AllBooksContainer books={books} setBooks={setBooks} />
+            <AllMusics musics={musics} setMusics={setMusics} />
           </ContentWrapper>
         </Route>
         <Route path={`${path}/edit/:id`}>
           <ContentWrapper>
-            <EditBook books={books} />
+            <EditMusic musics={musics} />
           </ContentWrapper>
         </Route>
         <Route path={`${path}/delete/:id`}>
           <ContentWrapper>
-            <DeleteBook books={books} />
+            <DeleteMusic musics={musics} />
           </ContentWrapper>
         </Route>
         <Route path="*">
           <ContentWrapper>
-            <p>404</p>
+            <spam>404</spam>
           </ContentWrapper>
         </Route>
       </Switch>

@@ -7,14 +7,14 @@ import {
   ModalImage,
 } from './style'
 
-const Modal = ({ isModalOpen, setModalOpen, children }) => {
+const Modal = ({ isModalOpen, setModalOpen, children, noImg }) => {
   return (
     <ModalBackground isModalOpen={isModalOpen}>
       <ModalWrapper>
         <ModalCloseButton onClick={() => setModalOpen(false)}>
           X
         </ModalCloseButton>
-        <ModalImage />
+        {noImg ? null : <ModalImage />}
 
         <ModalContentWrapper>{children}</ModalContentWrapper>
       </ModalWrapper>

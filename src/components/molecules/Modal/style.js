@@ -12,8 +12,9 @@ export const ModalBackground = styled.div`
 `
 
 export const ModalWrapper = styled.div`
-  width: 43rem;
-  height: 35rem;
+  width: 40rem;
+  max-width: 100vw;
+  min-height: 28rem;
   background-color: #fff;
   margin: 2rem auto;
   position: relative;
@@ -24,6 +25,7 @@ export const ModalWrapper = styled.div`
 
 export const ModalImage = styled.div`
   position: relative;
+  min-height: 28rem;
   height: 100%;
   flex: 1;
   max-width: 25%;
@@ -34,6 +36,10 @@ export const ModalImage = styled.div`
   background-image: url('/imgs/loginBg.jpg');
   background-size: cover;
   background-position-x: center;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 
 export const ModalCloseButton = styled.button`

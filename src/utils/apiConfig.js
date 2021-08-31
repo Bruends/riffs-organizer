@@ -3,7 +3,7 @@
  * para chamadas de API (fetch)
  */
 
-const BASE_URL = 'http://localhost:3300/booksapi'
+const BASE_URL = 'http://localhost:3300/musics'
 
 const headers = {
   Accept: 'application/json',
@@ -24,7 +24,7 @@ export const POST_LOGIN = (email, password) => ({
 })
 
 export const POST_REGISTER = (username, email, password) => ({
-  url: BASE_URL + '/user/adduser',
+  url: BASE_URL + '/user/register',
   options: {
     method: 'POST',
     headers,
@@ -36,20 +36,19 @@ export const POST_REGISTER = (username, email, password) => ({
   },
 })
 
-// === Configuração rotas de livros (CRUD)
-export const GET_BOOKS = (token) => ({
-  url: BASE_URL + '/books/all',
+// === Configuração rotas (CRUD)
+export const GET_CONFIG = (token) => ({
+  url: BASE_URL + '/all',
   options: {
     method: 'GET',
     headers: {
       authorization: `Bearer ${token}`,
-      ...headers,
     },
   },
 })
 
-export const POST_ADDBOOK = (token, title, description) => ({
-  url: BASE_URL + '/books/add',
+export const ADD_CONFIG = (token, music) => ({
+  url: BASE_URL + '/add',
   options: {
     method: 'POST',
     headers: {
@@ -57,16 +56,13 @@ export const POST_ADDBOOK = (token, title, description) => ({
       ...headers,
     },
     body: JSON.stringify({
-      book: {
-        title,
-        description,
-      },
+      music,
     }),
   },
 })
 
-export const PUT_UPDATEBOOK = (token, _id, title, description) => ({
-  url: BASE_URL + '/books/update',
+export const UPDATE_CONFIG = (token, music) => ({
+  url: BASE_URL + '/update',
   options: {
     method: 'PUT',
     headers: {
@@ -74,17 +70,13 @@ export const PUT_UPDATEBOOK = (token, _id, title, description) => ({
       ...headers,
     },
     body: JSON.stringify({
-      book: {
-        _id,
-        title,
-        description,
-      },
+      music,
     }),
   },
 })
 
-export const DELETE_BOOK = (token, _id) => ({
-  url: BASE_URL + '/books/delete',
+export const DELETE_CONFIG = (token, _id) => ({
+  url: BASE_URL + '/delete',
   options: {
     method: 'DELETE',
     headers: {
