@@ -5,10 +5,12 @@ import AllMusics from './AllMusics/AllMusics'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
 import EditMusic from './EditMusic/EditMusic'
 import DeleteMusic from './DeleteMusic/DeleteMusic'
+import Alert from '../../components/molecules/Alerts/Alert'
 
 function Dashboard() {
   let { path } = useRouteMatch()
   const [musics, setMusics] = React.useState([])
+
   return (
     <>
       <Menu />
@@ -34,6 +36,7 @@ function Dashboard() {
           </ContentWrapper>
         </Route>
       </Switch>
+      <Alert message="Adicionado com sucesso!" type="success" />
     </>
   )
 }

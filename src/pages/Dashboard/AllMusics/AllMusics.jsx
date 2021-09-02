@@ -12,11 +12,11 @@ function AllMusics({ musics, setMusics }) {
   const { allMusics, addMusic, refresh } = useMusicAPI()
 
   React.useEffect(() => {
-    const fetchMusics = async () => {
-      const apiMusics = await allMusics()
-      setMusics(apiMusics)
-    }
-    fetchMusics()
+    // const fetchMusics = async () => {
+    //   const apiMusics = await allMusics()
+    //   setMusics(apiMusics)
+    // }
+    // fetchMusics()
   }, [refresh])
 
   return (
