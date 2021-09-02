@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import useAuth from '../../../../Hooks/useAuth'
+
 // icones font awesome
 import {
   faMusic,
-  faUserCog,
-  faCog,
-  faOutdent,
+  faArrowAltCircleLeft,
 } from '@fortawesome/free-solid-svg-icons'
 
 // styled components
@@ -20,6 +20,8 @@ import {
 } from './style.js'
 
 const Menu = () => {
+  const { logout } = useAuth()
+
   return (
     <NavContainer>
       <LogoContainer>
@@ -38,18 +40,9 @@ const Menu = () => {
 
         <MenuItem>
           <LinkWrapper>
-            <Link to="/dashboard">
-              <FontAwesomeIcon icon={faUserCog} />
-              <LinkText>Soon</LinkText>
-            </Link>
-          </LinkWrapper>
-        </MenuItem>
-
-        <MenuItem>
-          <LinkWrapper>
-            <Link to="/dashboard">
-              <FontAwesomeIcon icon={faCog} />
-              <LinkText>Soon</LinkText>
+            <Link to="/logout">
+              <FontAwesomeIcon icon={faArrowAltCircleLeft} />
+              <LinkText>Logout</LinkText>
             </Link>
           </LinkWrapper>
         </MenuItem>

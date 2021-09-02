@@ -3,9 +3,8 @@ import EditModalForm from '../../../components/organisms/ModalForm/ModalForm'
 import { useParams } from 'react-router-dom'
 import { useMusicAPI } from '../../../Hooks/useMusicAPI'
 
-function EditMusic({ musics }) {
+function EditMusic({ musics, updateMusic }) {
   const [modal, setModal] = React.useState(true)
-  const { updateMusic } = useMusicAPI()
   const [music, setMusic] = React.useState(null)
   const { id } = useParams()
 

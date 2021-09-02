@@ -12,7 +12,12 @@ const Alert = ({ message, type = 'info' }) => {
   const [alert, setAlert] = React.useState(false)
 
   React.useEffect(() => {
-    if (message) setAlert(true)
+    if (message) {
+      setAlert(true)
+      setTimeout(() => {
+        setAlert(false)
+      }, 6000)
+    }
   }, [message])
 
   // cor e icone de acordo com o tipo do alerta

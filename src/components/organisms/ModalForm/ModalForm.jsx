@@ -30,6 +30,7 @@ function ModalForm({ music, submit, modal, setModal, modalTitle }) {
     }
     if (_id) newMusic._id = _id
     await submit(newMusic)
+    setModal(false)
     history.push('/dashboard')
   }
 

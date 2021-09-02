@@ -24,10 +24,12 @@ const useApiCall = () => {
       if (json.auth === false) setToken('')
 
       if (!response.ok) throw new Error(json.error)
+
+      log('response', 'table', response)
     } catch (error) {
       json = null
-      log('api error', 'error', error)
-      setError(error.message)
+      log('api call  error', 'error', error)
+      setError({ error: error.message, message: 'Erro' })
     } finally {
       setData(json)
       setLoading(false)

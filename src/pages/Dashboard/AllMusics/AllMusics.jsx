@@ -2,22 +2,19 @@ import React from 'react'
 import { ContentWrapper } from './Style'
 import TopToolBar from '../components/TopToolBar/TopToolBar'
 import AddModalForm from '../../../components/organisms/ModalForm/ModalForm'
-import { useMusicAPI } from '../../../Hooks/useMusicAPI'
 import Music from '../components/Music/Music'
 
-function AllMusics({ musics, setMusics }) {
+function AllMusics({ musics, setMusics, apiRequest, apiStates }) {
   const [search, setSearch] = React.useState('')
   const [addModal, setaddModal] = React.useState(false)
 
-  const { allMusics, addMusic, refresh } = useMusicAPI()
-
   React.useEffect(() => {
-    // const fetchMusics = async () => {
-    //   const apiMusics = await allMusics()
-    //   setMusics(apiMusics)
-    // }
-    // fetchMusics()
-  }, [refresh])
+    const fetchMusics = async () => {
+      const apiMusics = await apiRequest.allMusics()
+      if (apiMusics) setMusics(apiMusics)
+    }
+    fetchMusics()
+  }, [apiStates.refresh])
 
   return (
     <>
@@ -25,7 +22,7 @@ function AllMusics({ musics, setMusics }) {
         modalTitle="Nova Música"
         modal={addModal}
         setModal={setaddModal}
-        submit={addMusic}
+        submit={apiRequest.addMusic}
         buttonTitle="Salvar"
       />
 

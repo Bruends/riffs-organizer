@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    --main-color: #FF4C29;
+    --main-color: #334756;
     --main-font: 'Roboto', 'Helvetica';
     // dashboard  
     --dash-menubg: #161616;   

@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 export const LoginContainer = styled.div`
   background-color: #fff;
-  max-width: 50rem;
+  max-width: 95vw;
+  width: 50rem;
   display: flex;
   margin: 10vh auto;
   box-shadow: 5px 5px 0px 0px #e6e6e6;

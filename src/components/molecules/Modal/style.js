@@ -13,7 +13,7 @@ export const ModalBackground = styled.div`
 
 export const ModalWrapper = styled.div`
   width: 40rem;
-  max-width: 100vw;
+  max-width: 90vw;
   min-height: 28rem;
   background-color: #fff;
   margin: 2rem auto;

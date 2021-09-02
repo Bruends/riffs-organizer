@@ -5,12 +5,11 @@ import { useMusicAPI } from '../../../Hooks/useMusicAPI'
 import Button from '../../../components/atoms/Button/Button'
 import { useHistory } from 'react-router-dom'
 
-function DeleteMusic() {
+function DeleteMusic({ deleteMusic }) {
   const [modal, setModal] = React.useState(true)
-  const { deleteMusic } = useMusicAPI()
+
   const { id } = useParams()
   let history = useHistory()
-  console.log(id)
 
   const handleDelete = async () => {
     await deleteMusic(id)

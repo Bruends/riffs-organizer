@@ -1,42 +1,32 @@
 import React from 'react'
-import { ContentWrapper } from './style'
 import Menu from './components/Menu/Menu'
-import AllMusics from './AllMusics/AllMusics'
-import { Switch, Route, useRouteMatch } from 'react-router-dom'
-import EditMusic from './EditMusic/EditMusic'
-import DeleteMusic from './DeleteMusic/DeleteMusic'
 import Alert from '../../components/molecules/Alerts/Alert'
+import DashboardRoutes from './DashboardRoutes'
+import { useMusicAPI } from '../../Hooks/useMusicAPI'
 
 function Dashboard() {
-  let { path } = useRouteMatch()
   const [musics, setMusics] = React.useState([])
+  const [alert, setAlert] = React.useState({ message: null })
+  const { apiRequest, apiStates } = useMusicAPI()
+  const { error, message } = apiStates
+
+  React.useEffect(() => {
+    if (error) setAlert({ type: 'error', message: error.message })
+
+    if (message) setAlert({ ...message })
+  }, [message, error])
 
   return (
     <>
       <Menu />
-      <Switch>
-        <Route exact path={path}>
-          <ContentWrapper>
-            <AllMusics musics={musics} setMusics={setMusics} />
-          </ContentWrapper>
-        </Route>
-        <Route path={`${path}/edit/:id`}>
-          <ContentWrapper>
-            <EditMusic musics={musics} />
-          </ContentWrapper>
-        </Route>
-        <Route path={`${path}/delete/:id`}>
-          <ContentWrapper>
-            <DeleteMusic musics={musics} />
-          </ContentWrapper>
-        </Route>
-        <Route path="*">
-          <ContentWrapper>
-            <spam>404</spam>
-          </ContentWrapper>
-        </Route>
-      </Switch>
-      <Alert message="Adicionado com sucesso!" type="success" />
+      <DashboardRoutes
+        musics={musics}
+        setMusics={setMusics}
+        setAlert={setAlert}
+        apiRequest={apiRequest}
+        apiStates={apiStates}
+      />
+      <Alert message={alert.message} type={alert.type} />
     </>
   )
 }

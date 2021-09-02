@@ -1,12 +1,12 @@
 import styled, { keyframes } from 'styled-components'
 
 const animation = keyframes`
-  to {
-    right: 0;
-  }
-  from {    
+  0% {    
     right: -100vw;
   } 
+  80% {
+    right: 0;
+  }
 `
 
 export const AlertStyled = styled.div`
@@ -17,10 +17,9 @@ export const AlertStyled = styled.div`
   width: 20rem;
   min-height: 4rem;
   position: fixed;
-  top: 0;
+  bottom: 5px;
   right: 0;
-  animation: ${animation} 1s;
-  animation-fill-mode: forwards;
+  animation: ${animation} 3s;
   border-radius: 8px;
   align-items: center;
   border-bottom: 4px solid var(${(props) => props.color});
