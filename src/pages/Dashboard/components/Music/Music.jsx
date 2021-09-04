@@ -5,12 +5,14 @@ import {
   Title,
   ButtonsWrapper,
   ContentWrapper,
-  MusicLinks,
 } from './style'
 
-import Button from '../../../../components/atoms/Button/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash, faPaintBrush } from '@fortawesome/free-solid-svg-icons'
+import {
+  faTrash,
+  faPaintBrush,
+  faGuitar,
+} from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
 function Music({ title, _id, tab, video }) {
@@ -21,8 +23,9 @@ function Music({ title, _id, tab, video }) {
       <ContentWrapper>
         <Title>{title}</Title>
 
-        {tab ? <MusicLinks href={tab}>Tablatura</MusicLinks> : null}
-        {video ? <MusicLinks href={video}>Video</MusicLinks> : null}
+        <Link to={`dashboard/pratice/${_id}`}>
+          Praticar <FontAwesomeIcon icon={faGuitar} />
+        </Link>
 
         <ButtonsWrapper>
           <Link to={`/dashboard/edit/${_id}`}>

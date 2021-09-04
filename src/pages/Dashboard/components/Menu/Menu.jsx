@@ -7,6 +7,7 @@ import useAuth from '../../../../Hooks/useAuth'
 import {
   faMusic,
   faArrowAltCircleLeft,
+  faGuitar,
 } from '@fortawesome/free-solid-svg-icons'
 
 // styled components
@@ -34,6 +35,15 @@ const Menu = () => {
             <Link to="/dashboard">
               <FontAwesomeIcon icon={faMusic} />
               <LinkText>Músicas</LinkText>
+            </Link>
+          </LinkWrapper>
+        </MenuItem>
+
+        <MenuItem>
+          <LinkWrapper>
+            <Link to="/dashboard/pratice">
+              <FontAwesomeIcon icon={faGuitar} />
+              <LinkText>Praticar</LinkText>
             </Link>
           </LinkWrapper>
         </MenuItem>

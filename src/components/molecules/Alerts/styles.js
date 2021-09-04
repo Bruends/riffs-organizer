@@ -19,7 +19,7 @@ export const AlertStyled = styled.div`
   position: fixed;
   bottom: 5px;
   right: 0;
-  animation: ${animation} 3s;
+  animation: ${animation} 2s;
   border-radius: 8px;
   align-items: center;
   border-bottom: 4px solid var(${(props) => props.color});

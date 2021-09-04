@@ -1,7 +1,6 @@
 import React from 'react'
 import EditModalForm from '../../../components/organisms/ModalForm/ModalForm'
 import { useParams } from 'react-router-dom'
-import { useMusicAPI } from '../../../Hooks/useMusicAPI'
 
 function EditMusic({ musics, updateMusic }) {
   const [modal, setModal] = React.useState(true)

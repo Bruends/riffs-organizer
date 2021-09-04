@@ -4,6 +4,7 @@ import AllMusics from './AllMusics/AllMusics'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
 import EditMusic from './EditMusic/EditMusic'
 import DeleteMusic from './DeleteMusic/DeleteMusic'
+import Pratice from './Pratice/Pratice'
 
 function DashboardRoutes({
   musics,
@@ -28,6 +29,12 @@ function DashboardRoutes({
         </ContentWrapper>
       </Route>
 
+      <Route path={`${path}/pratice/:id`}>
+        <ContentWrapper>
+          <Pratice musics={musics} />
+        </ContentWrapper>
+      </Route>
+
       <Route path={`${path}/edit/:id`}>
         <ContentWrapper>
           <EditMusic
@@ -41,6 +48,13 @@ function DashboardRoutes({
       <Route path={`${path}/delete/:id`}>
         <ContentWrapper>
           <DeleteMusic deleteMusic={apiRequest.deleteMusic} />
+          <AllMusics
+            musics={musics}
+            setMusics={setMusics}
+            setAlert={setAlert}
+            apiRequest={apiRequest}
+            apiStates={apiStates}
+          />
         </ContentWrapper>
       </Route>
 

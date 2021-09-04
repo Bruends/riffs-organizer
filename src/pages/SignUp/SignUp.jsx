@@ -1,7 +1,6 @@
 import React from 'react'
 import AuthForm from '../../components/organisms/AuthForm/AuthForm'
 import useApiCall from '../../Hooks/useApiCall'
-//import useLocalStorage from '../../Hooks/useLocalStorage'
 import { POST_REGISTER } from '../../utils/apiConfig'
 
 function SignUp() {

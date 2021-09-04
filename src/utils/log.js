@@ -10,10 +10,10 @@ const log = (title, type, logs) => {
       })
       break
     case 'error':
-      console.error(log)
+      console.error(logs)
       break
     default:
-      console.log(log)
+      console.log(logs)
       break
   }
   console.groupEnd()
