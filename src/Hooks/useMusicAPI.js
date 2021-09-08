@@ -5,6 +5,7 @@ import {
   ADD_CONFIG,
   UPDATE_CONFIG,
   DELETE_CONFIG,
+  UPDATE_LOOPS,
 } from '../utils/apiConfig'
 import useLocalStorage from './useLocalStorage'
 
@@ -53,12 +54,23 @@ export const useMusicAPI = () => {
     setRefresh(!refresh)
   }
 
+  const updateLoops = async (_id, loops) => {
+    const { url, options } = UPDATE_LOOPS(token, _id, loops)
+    await request(url, options)
+
+    if (!error)
+      setMessage({ message: 'Loops Salvos com Sucesso!', type: 'success' })
+
+    setRefresh(!refresh)
+  }
+
   return {
     apiRequest: {
       allMusics,
       addMusic,
       deleteMusic,
       updateMusic,
+      updateLoops,
     },
     apiStates: { refresh, loading, error, message },
   }

@@ -31,7 +31,11 @@ function DashboardRoutes({
 
       <Route path={`${path}/pratice/:id`}>
         <ContentWrapper>
-          <Pratice musics={musics} />
+          <Pratice
+            musics={musics}
+            apiRequest={apiRequest}
+            apiStates={apiStates}
+          />
         </ContentWrapper>
       </Route>
 

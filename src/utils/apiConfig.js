@@ -88,3 +88,18 @@ export const DELETE_CONFIG = (token, _id) => ({
     }),
   },
 })
+
+export const UPDATE_LOOPS = (token, _id, loops) => ({
+  url: BASE_URL + '/loops',
+  options: {
+    method: 'PUT',
+    headers: {
+      authorization: `Bearer ${token}`,
+      ...headers,
+    },
+    body: JSON.stringify({
+      _id,
+      loops,
+    }),
+  },
+})
