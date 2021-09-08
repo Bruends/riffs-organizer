@@ -15,7 +15,7 @@ export const ModalWrapper = styled.div`
   width: 40rem;
   max-width: 90vw;
   min-height: 28rem;
-  background-color: #fff;
+  background-color: var(--dash-menubg);
   margin: 2rem auto;
   position: relative;
   display: flex;

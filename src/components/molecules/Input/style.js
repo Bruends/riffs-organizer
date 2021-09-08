@@ -12,19 +12,20 @@ export const InputStyle = styled.input`
   outline: none;
   border: none;
   width: 100%;
+  background: var(--dash-bg);
   margin: 0.2rem auto;
-  background: #f8f9fa;
-  border: 2px solid #e2e2e2;
+  border: 2px solid var(--dash-bg);
   font-size: 1.05rem;
-  border-radius: 6px;
+  border-bottom: 2px solid var(--main-color);
+  color: #fff;
 
   :focus {
-    border: 2px solid var(--main-color);
+    border-bottom: 3px solid var(--main-color);
   }
 `
 
 export const ErrorSpan = styled.span`
   display: block;
-  color: red;
+  color: var(--error-color);
   margin: 0.4rem 0;
 `

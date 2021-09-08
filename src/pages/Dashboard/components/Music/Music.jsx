@@ -1,39 +1,45 @@
 import React from 'react'
 import {
   Wrapper,
-  SideImage,
+  MusicLink,
+  SideDetail,
   Title,
   ButtonsWrapper,
   ContentWrapper,
 } from './style'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import {
   faTrash,
   faPaintBrush,
   faGuitar,
+  faMusic,
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
 function Music({ title, _id, tab, video }) {
   return (
     <Wrapper>
-      <SideImage />
+      <SideDetail>
+        <Icon icon={faMusic} />
+      </SideDetail>
 
       <ContentWrapper>
         <Title>{title}</Title>
 
-        <Link to={`dashboard/pratice/${_id}`}>
-          Praticar <FontAwesomeIcon icon={faGuitar} />
-        </Link>
+        <MusicLink>
+          <Link to={`dashboard/pratice/${_id}`}>
+            <Icon icon={faGuitar} /> Praticar
+          </Link>
+        </MusicLink>
 
         <ButtonsWrapper>
           <Link to={`/dashboard/edit/${_id}`}>
-            <FontAwesomeIcon icon={faPaintBrush} />
+            <Icon icon={faPaintBrush} />
           </Link>
 
           <Link to={`/dashboard/delete/${_id}`}>
-            <FontAwesomeIcon icon={faTrash} />
+            <Icon icon={faTrash} />
           </Link>
         </ButtonsWrapper>
       </ContentWrapper>

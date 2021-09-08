@@ -12,7 +12,7 @@ function TopToolBar({ search, setSearch, addModal }) {
           placeholder="Pesquisar por título..."
           value={search}
         />
-        <Button value="Adicionar" onClick={() => addModal(true)} />
+        <Button onClick={() => addModal(true)}>Nova Música</Button>
       </Wrapper>
     </>
   )

@@ -9,6 +9,7 @@ export const NavContainer = styled.div`
   flex-direction: column;
   align-items: center;
   transition: 0.2s;
+  border-right: 4px solid var(--main-color);
 
   @media (max-width: 768px) {
     position: fixed;
@@ -43,8 +44,11 @@ export const MenuContainer = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
+  border-right: 4px solid var(--main-color);
 
   @media (max-width: 768px) {
+    border-right: none;
+    border-top: 4px solid var(--main-color);
     width: 100%;
     flex-direction: row;
     justify-content: space-around;
@@ -58,6 +62,7 @@ export const MenuItem = styled.li`
 
   @media (max-width: 768px) {
     margin: 0;
+    border-left: none;
   }
 `
 

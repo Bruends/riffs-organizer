@@ -68,8 +68,10 @@ function ModalForm({ music, submit, modal, setModal, modalTitle }) {
         />
 
         <ButtonWrapper>
-          <Button value="salvar" type="submit" />
-          <Button value="Cancelar" onClick={handleCancel} />
+          <Button type="submit">salvar</Button>
+          <Button color="--error-color" onClick={handleCancel}>
+            Cancelar
+          </Button>
         </ButtonWrapper>
       </form>
     </Modal>
