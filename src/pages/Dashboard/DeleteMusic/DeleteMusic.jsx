@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import Button from '../../../components/atoms/Button/Button'
 import { useHistory } from 'react-router-dom'
 
-import { ButtonsWrapper } from './style'
+import { ButtonsWrapper, Title } from './style'
 
 function DeleteMusic({ deleteMusic }) {
   const [modal, setModal] = React.useState(true)
@@ -20,12 +20,18 @@ function DeleteMusic({ deleteMusic }) {
   return (
     <Modal isModalOpen={modal} setModalOpen={setModal} noImg={true}>
       <div>
-        <h1>Deletar Musica ?</h1>
+        <Title>Deletar Musica ?</Title>
         <ButtonsWrapper>
           <Button color="--error-color" onClick={handleDelete}>
             Deletar
           </Button>
-          <Button onClick={handleDelete}>Cancelar</Button>
+          <Button
+            onClick={() => {
+              setModal(false)
+            }}
+          >
+            Cancelar
+          </Button>
         </ButtonsWrapper>
       </div>
     </Modal>
