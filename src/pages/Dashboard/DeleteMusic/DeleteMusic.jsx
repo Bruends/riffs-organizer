@@ -17,6 +17,11 @@ function DeleteMusic({ deleteMusic }) {
     history.push('/dashboard')
   }
 
+  const handleCancel = () => {
+    setModal(false)
+    history.push('/dashboard')
+  }
+
   return (
     <Modal isModalOpen={modal} setModalOpen={setModal} noImg={true}>
       <div>
@@ -25,13 +30,7 @@ function DeleteMusic({ deleteMusic }) {
           <Button color="--error-color" onClick={handleDelete}>
             Deletar
           </Button>
-          <Button
-            onClick={() => {
-              setModal(false)
-            }}
-          >
-            Cancelar
-          </Button>
+          <Button onClick={handleCancel}>Cancelar</Button>
         </ButtonsWrapper>
       </div>
     </Modal>
