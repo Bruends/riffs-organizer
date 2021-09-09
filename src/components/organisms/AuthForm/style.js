@@ -1,12 +1,14 @@
 import styled from 'styled-components'
 
 export const LoginContainer = styled.div`
-  background-color: #fff;
+  background-color: var(--dash-bg);
   max-width: 95vw;
   width: 50rem;
   display: flex;
   margin: 10vh auto;
-  box-shadow: 5px 5px 0px 0px #e6e6e6;
+  border: 4px solid var(--main-color);
+  border-radius: 4px;
+  /* box-shadow: 5px 5px 0px 0px #e6e6e6; */
 
   div {
     flex: 1;

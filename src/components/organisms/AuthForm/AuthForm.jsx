@@ -61,7 +61,7 @@ function AuthForm({ title, submit, type }) {
           />
 
           <ButtonLinkWrapper>
-            <Button type="submit" value={title} />
+            <Button type="submit">{title}</Button>
 
             {type === 'register' ? (
               <Link to="/">Logar</Link>

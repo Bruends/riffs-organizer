@@ -11,9 +11,9 @@ const Modal = ({ isModalOpen, setModalOpen, children, noImg }) => {
   return (
     <ModalBackground isModalOpen={isModalOpen}>
       <ModalWrapper>
-        <ModalCloseButton onClick={() => setModalOpen(false)}>
+        {/* <ModalCloseButton onClick={() => setModalOpen(false)}>
           X
-        </ModalCloseButton>
+        </ModalCloseButton> */}
         {noImg ? null : <ModalImage />}
 
         <ModalContentWrapper>{children}</ModalContentWrapper>

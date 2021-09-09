@@ -1,9 +1,10 @@
 import React from 'react'
 import Modal from '../../../components/molecules/Modal/Modal'
 import { useParams } from 'react-router-dom'
-import { useMusicAPI } from '../../../Hooks/useMusicAPI'
 import Button from '../../../components/atoms/Button/Button'
 import { useHistory } from 'react-router-dom'
+
+import { ButtonsWrapper } from './style'
 
 function DeleteMusic({ deleteMusic }) {
   const [modal, setModal] = React.useState(true)
@@ -20,7 +21,12 @@ function DeleteMusic({ deleteMusic }) {
     <Modal isModalOpen={modal} setModalOpen={setModal} noImg={true}>
       <div>
         <h1>Deletar Musica ?</h1>
-        <Button value="Deletar" onClick={handleDelete} />
+        <ButtonsWrapper>
+          <Button color="--error-color" onClick={handleDelete}>
+            Deletar
+          </Button>
+          <Button onClick={handleDelete}>Cancelar</Button>
+        </ButtonsWrapper>
       </div>
     </Modal>
   )

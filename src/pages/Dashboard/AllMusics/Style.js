@@ -5,4 +5,5 @@ export const ContentWrapper = styled.section`
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
+  padding: 1rem;
 `

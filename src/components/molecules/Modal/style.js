@@ -14,7 +14,7 @@ export const ModalBackground = styled.div`
 export const ModalWrapper = styled.div`
   width: 40rem;
   max-width: 90vw;
-  min-height: 28rem;
+  min-height: 8rem;
   background-color: var(--dash-menubg);
   margin: 2rem auto;
   position: relative;
@@ -48,9 +48,9 @@ export const ModalCloseButton = styled.button`
   position: absolute;
   right: 0;
   top: 0;
+  background: var(--dash-bg);
   font-weight: bold;
-  background-color: #fff;
-  color: #222;
+  color: #fff;
   cursor: pointer;
 
   &:hover {

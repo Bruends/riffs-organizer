@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const LabelStyle = styled.label`
   display: block;
-  margin-top: 0.8rem;
+  margin-top: 1.6rem;
 `
 
 export const InputStyle = styled.input`

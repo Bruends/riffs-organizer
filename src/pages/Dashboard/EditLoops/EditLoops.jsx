@@ -4,17 +4,17 @@ import Button from '../../../components/atoms/Button/Button'
 import Modal from '../../../components/molecules/Modal/Modal'
 import { convertToSeconds } from '../../../utils/utils'
 
-import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 // icones font awesome
-import { faSave, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
+import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import { FlexContainer, ButtonWrapper, Title } from './style'
 
 function EditLoops({ loops, _id, modal, setModal, apiRequest }) {
   const [newLoops, setNewLoops] = React.useState([])
   const [title, setTitle] = React.useState('')
-  const [start, setStart] = React.useState('')
-  const [end, setEnd] = React.useState('')
+  const [start, setStart] = React.useState('00:00')
+  const [end, setEnd] = React.useState('00:00')
 
   console.log(newLoops)
 
@@ -82,28 +82,34 @@ function EditLoops({ loops, _id, modal, setModal, apiRequest }) {
           />
         </FlexContainer>
         <Button type="submit" color="--success-color">
-          Adicionar <Icon icon={faPlus} />
+          Adicionar &nbsp;
+          <Icon icon={faPlus} />
         </Button>
       </form>
 
-      <Title>Deletar Loops</Title>
-      <FlexContainer>
-        {newLoops.map((loop, i) => (
-          <Button
-            key={i}
-            color="--error-color"
-            onClick={() => {
-              deleteLoop(i)
-            }}
-          >
-            {loop.title} <Icon icon={faTrash} />
-          </Button>
-        ))}
-      </FlexContainer>
+      {newLoops.length > 0 ? (
+        <>
+          <Title>Deletar Loops</Title>
+          <FlexContainer>
+            {newLoops.map((loop, i) => (
+              <Button
+                key={i}
+                color="--error-color"
+                onClick={() => {
+                  deleteLoop(i)
+                }}
+              >
+                {loop.title} &nbsp;
+                <Icon icon={faTrash} />
+              </Button>
+            ))}
+          </FlexContainer>
+        </>
+      ) : null}
 
       <ButtonWrapper>
-        <Button onClick={handleSave}>
-          Salvar Alterações <Icon icon={faSave} />
+        <Button color="--info-color" onClick={handleSave}>
+          Salvar Alterações
         </Button>
         <Button
           onClick={() => {

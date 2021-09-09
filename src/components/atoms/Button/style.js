@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
 export const ButtonStyle = styled.button`
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 0.6rem 1rem;
   background-color: var(${({ color }) => (color ? color : '--main-color')});
   color: #fff;

@@ -12,7 +12,7 @@ import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import {
   faTrash,
   faPaintBrush,
-  faGuitar,
+  faPlay,
   faMusic,
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
@@ -29,7 +29,7 @@ function Music({ title, _id, tab, video }) {
 
         <MusicLink>
           <Link to={`dashboard/pratice/${_id}`}>
-            <Icon icon={faGuitar} /> Praticar
+            <Icon icon={faPlay} /> Praticar
           </Link>
         </MusicLink>
 

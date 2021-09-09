@@ -59,7 +59,6 @@ export const MenuItem = styled.li`
   margin: 0;
   padding: 0;
   display: block;
-
   @media (max-width: 768px) {
     margin: 0;
     border-left: none;

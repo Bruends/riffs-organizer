@@ -45,7 +45,7 @@ function ModalForm({ music, submit, modal, setModal, modalTitle }) {
       <Title> {modalTitle} </Title>
       <form onSubmit={handleSubmit}>
         <Input
-          label="Título"
+          label="Título: "
           value={title}
           onChange={({ target }) => setTitle(target.value)}
           placeholder="Foo Fighters - Walk"
@@ -53,18 +53,18 @@ function ModalForm({ music, submit, modal, setModal, modalTitle }) {
         />
 
         <Input
-          label="Youtube Link"
+          label="Youtube Link: "
           value={video}
           onChange={({ target }) => setVideo(target.value)}
           placeholder="https://www.youtube.com/watch?v=4PkcfQtibmU"
           required
         />
+
         <Input
-          label="Tablatura"
+          label="Tablatura: "
           value={tab}
           onChange={({ target }) => setTab(target.value)}
           placeholder="https://www.seusitedetabs.com/ffwalk"
-          required
         />
 
         <ButtonWrapper>

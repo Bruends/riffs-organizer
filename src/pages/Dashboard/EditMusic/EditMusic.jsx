@@ -16,7 +16,7 @@ function EditMusic({ musics, updateMusic }) {
 
   return (
     <EditModalForm
-      modalTitle="Editar Livro"
+      modalTitle="Editar Música"
       modal={modal}
       setModal={setModal}
       buttonTitle="Salvar"

@@ -3,12 +3,20 @@ import { useParams } from 'react-router-dom'
 import YouTube from 'react-youtube'
 import EditLoops from '../EditLoops/EditLoops'
 import Button from '../../../components/atoms/Button/Button'
+import Input from '../../../components/molecules/Input/Input'
+
+// icones font awesome
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
+import { faRedo, faPaintBrush } from '@fortawesome/free-solid-svg-icons'
+
+import { ContentWrapper, LoopsContainer } from './style'
 
 function Pratice({ musics, apiRequest, apiStates }) {
   const [music, setMusic] = React.useState({ video: '', loops: [] })
   const [modal, setModal] = React.useState(false)
   const [autoplay, setautoPlay] = React.useState(0)
-  const [loop, setLoop] = React.useState({ title: 'intro', start: 0, end: 100 })
+  const [loop, setLoop] = React.useState({ start: 0, end: 0 })
+
   const { id } = useParams()
 
   React.useEffect(() => {
@@ -19,8 +27,8 @@ function Pratice({ musics, apiRequest, apiStates }) {
   console.log(id)
 
   const youtubeOptions = {
-    height: '250',
-    width: '500',
+    height: '260',
+    width: '510',
     playerVars: {
       autoplay: autoplay,
       start: loop.start,
@@ -46,36 +54,44 @@ function Pratice({ musics, apiRequest, apiStates }) {
         apiStates={apiStates}
       />
 
-      <YouTube
-        videoId={music.video.split('=')[1]}
-        opts={youtubeOptions}
-        onEnd={({ target }) => {
-          target.seekTo(loop.start)
-        }}
-      />
-
-      <div>
+      <ContentWrapper>
         <h1>{music.title}</h1>
-        Loops:
-        {music.loops.map((loop, i) => (
-          <Button
-            key={i}
-            onClick={() => {
-              handleSetLoop(i)
-            }}
-          >
-            {loop.title}
-          </Button>
-        ))}
+        <YouTube
+          videoId={music.video.split('=')[1]}
+          opts={youtubeOptions}
+          onEnd={({ target }) => {
+            target.seekTo(loop.start)
+          }}
+        />
+
         <Button
           color="--info-color"
           onClick={() => {
             setModal(true)
           }}
         >
-          Editar Loops
+          <Icon icon={faPaintBrush} /> &nbsp; Editar Loops
         </Button>
-      </div>
+
+        {music.loops.length > 0 ? (
+          <div>
+            <LoopsContainer>
+              <spam>Loops:</spam>
+              {music.loops.map((loop, i) => (
+                <Button
+                  key={i}
+                  onClick={() => {
+                    handleSetLoop(i)
+                  }}
+                >
+                  <Icon icon={faRedo} /> &nbsp;
+                  {loop.title}
+                </Button>
+              ))}
+            </LoopsContainer>
+          </div>
+        ) : null}
+      </ContentWrapper>
     </>
   )
 }
