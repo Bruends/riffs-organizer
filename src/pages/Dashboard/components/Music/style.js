@@ -6,13 +6,15 @@ export const Wrapper = styled.div`
   border-radius: 6px;
   min-height: 6rem;
   background-color: var(--card-bg);
-  min-width: 22rem;
-  flex: 1;
-  margin: 1.5rem;
+  min-width: 90%;
+  margin: 1.5rem auto;
   border: 1px solid var(--main-color);
 `
 
 export const ContentWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.6rem 1.5rem;
   text-align: center;
   flex: 1;
@@ -33,7 +35,7 @@ export const Title = styled.h1`
   color: #fff;
   text-align: center;
 
-  &::after {
+  /* &::after {
     content: '';
     display: block;
     width: 2rem;
@@ -43,18 +45,17 @@ export const Title = styled.h1`
     position: relative;
     top: 0.3rem;
     border-radius: 10px;
-  }
+  } */
 `
 
 export const MusicLink = styled.div`
   a {
     display: block;
-    padding: 1rem;
+    padding: 0.5rem;
     color: #fff;
     background-color: var(--main-color);
     text-decoration: none;
-    max-width: 10rem;
-    margin: 1rem auto;
+    max-width: 8rem;
     border-radius: 1rem;
 
     &:hover {
@@ -65,21 +66,22 @@ export const MusicLink = styled.div`
 export const ButtonsWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-self: flex-end;
 
   a {
     display: block;
     padding: 0.6rem 0.6rem;
     background-color: var(--main-color);
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     color: #fff;
     box-shadow: none;
     border: none;
     border-radius: 6px;
     margin: 0.2rem;
+    text-decoration: none;
 
     &:hover {
-      filter: brightness(110%);
+      filter: brightness(125%);
       cursor: pointer;
     }
   }

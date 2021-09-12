@@ -7,9 +7,9 @@ import Input from '../../../components/molecules/Input/Input'
 
 // icones font awesome
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-import { faRedo, faPaintBrush } from '@fortawesome/free-solid-svg-icons'
+import { faPlay, faRedo, faPaintBrush } from '@fortawesome/free-solid-svg-icons'
 
-import { ContentWrapper, LoopsContainer } from './style'
+import { ContentWrapper, LoopsContainer, LoopControlContainer } from './style'
 
 function Pratice({ musics, apiRequest, apiStates }) {
   const [music, setMusic] = React.useState({ video: '', loops: [] })

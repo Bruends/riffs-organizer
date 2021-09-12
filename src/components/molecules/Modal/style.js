@@ -6,6 +6,7 @@ export const ModalBackground = styled.div`
   position: fixed;
   min-height: 100vh;
   width: 100vw;
+  top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.8);
   font-family: var(--main-font);

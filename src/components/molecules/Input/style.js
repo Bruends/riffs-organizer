@@ -12,15 +12,15 @@ export const InputStyle = styled.input`
   outline: none;
   border: none;
   width: 100%;
-  background: var(--dash-bg);
+  background: transparent;
   margin: 0.2rem auto;
-  border: 2px solid var(--dash-bg);
+  border: 2px solid transparent;
   font-size: 1.05rem;
   border-bottom: 2px solid var(--main-color);
   color: #fff;
 
   :focus {
-    border-bottom: 3px solid var(--main-color);
+    border-bottom: 2px solid var(--main-color);
   }
 `
 

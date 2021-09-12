@@ -27,19 +27,23 @@ function Music({ title, _id, tab, video }) {
       <ContentWrapper>
         <Title>{title}</Title>
 
-        <MusicLink>
+        {/* <MusicLink>
+            <Link to={`dashboard/pratice/${_id}`}>
+              <Icon icon={faPlay} /> Praticar
+            </Link>
+          </MusicLink> */}
+
+        <ButtonsWrapper>
           <Link to={`dashboard/pratice/${_id}`}>
             <Icon icon={faPlay} /> Praticar
           </Link>
-        </MusicLink>
 
-        <ButtonsWrapper>
           <Link to={`/dashboard/edit/${_id}`}>
-            <Icon icon={faPaintBrush} />
+            <Icon icon={faPaintBrush} /> Editar
           </Link>
 
           <Link to={`/dashboard/delete/${_id}`}>
-            <Icon icon={faTrash} />
+            <Icon icon={faTrash} /> Deletar
           </Link>
         </ButtonsWrapper>
       </ContentWrapper>

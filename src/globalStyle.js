@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     --dash-menubg: #161616;   
     --dash-bg: #e7e4d8; 
     --dash-bg: #121013; 
-    --dash-bg: #151515; 
+    --dash-bg: #222; 
 
     // alerts
     --success-color: #57CC99;

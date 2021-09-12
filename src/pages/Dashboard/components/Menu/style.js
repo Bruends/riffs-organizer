@@ -10,6 +10,7 @@ export const NavContainer = styled.div`
   align-items: center;
   transition: 0.2s;
   border-right: 4px solid var(--main-color);
+  top: 0;
 
   @media (max-width: 768px) {
     position: fixed;
@@ -18,6 +19,7 @@ export const NavContainer = styled.div`
     width: 100vw;
     height: 4rem;
     bottom: 0;
+    top: auto;
   }
 `
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const LoginContainer = styled.div`
-  background-color: var(--dash-bg);
+  background-color: var(--dash-menubg);
   max-width: 95vw;
   width: 50rem;
   display: flex;
