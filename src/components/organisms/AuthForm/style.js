@@ -8,7 +8,6 @@ export const LoginContainer = styled.div`
   margin: 10vh auto;
   border: 4px solid var(--main-color);
   border-radius: 4px;
-  /* box-shadow: 5px 5px 0px 0px #e6e6e6; */
 
   div {
     flex: 1;
@@ -20,6 +19,7 @@ export const LoginLeftBg = styled.div`
   padding: 0;
   background-image: url('/imgs/loginBg.jpg');
   background-size: cover;
+  background-position: center;
 
   @media (max-width: 768px) {
     display: none;
@@ -61,6 +61,8 @@ export const ButtonLinkWrapper = styled.div`
 `
 
 export const ErrorSpan = styled.span`
+  display: block;
   color: red;
   text-align: left;
+  margin-bottom: 1rem;
 `

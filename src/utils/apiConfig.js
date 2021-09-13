@@ -11,13 +11,13 @@ const headers = {
 }
 
 // === Configuração Rotas de Autenticação ===
-export const POST_LOGIN = (email, password) => ({
+export const POST_LOGIN = (username, password) => ({
   url: BASE_URL + '/user/login',
   options: {
     method: 'POST',
     headers,
     body: JSON.stringify({
-      email,
+      username,
       password,
     }),
   },

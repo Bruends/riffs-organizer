@@ -9,10 +9,10 @@ const useAuth = () => {
 
   const { request, error } = useApiCall()
 
-  const login = React.useCallback(async (email, password) => {
+  const login = React.useCallback(async (username, password) => {
     try {
       // objeto de configuração de chamada de api
-      const { url, options } = POST_LOGIN(email, password)
+      const { url, options } = POST_LOGIN(username, password)
       const { token } = await request(url, options)
 
       if (!error) {

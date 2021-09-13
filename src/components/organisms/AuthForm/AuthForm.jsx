@@ -21,7 +21,7 @@ function AuthForm({ title, submit, type }) {
     if (type == 'register') {
       submit(username, email, password)
     } else {
-      submit(email, password)
+      submit(username, password)
     }
   }
 
@@ -35,20 +35,20 @@ function AuthForm({ title, submit, type }) {
           {/* input de nome apenas na pg de registro */}
           {type === 'register' ? (
             <Input
-              label="Nome: "
-              value={username}
-              onChange={({ target }) => setUsername(target.value)}
-              id="username"
+              label="Email: "
+              value={email}
+              onChange={({ target }) => setEmail(target.value)}
+              id="email"
+              type="email"
               required
             />
           ) : null}
 
           <Input
-            label="Email: "
-            value={email}
-            onChange={({ target }) => setEmail(target.value)}
-            id="email"
-            type="email"
+            label="Usuário: "
+            value={username}
+            onChange={({ target }) => setUsername(target.value)}
+            id="username"
             required
           />
 
