@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faMusic,
   faArrowAltCircleLeft,
-  faGuitar,
 } from '@fortawesome/free-solid-svg-icons'
 
 // styled components
@@ -21,8 +20,6 @@ import {
 } from './style.js'
 
 const Menu = () => {
-  const { logout } = useAuth()
-
   return (
     <NavContainer>
       <LogoContainer>
@@ -38,16 +35,6 @@ const Menu = () => {
             </Link>
           </LinkWrapper>
         </MenuItem>
-
-        <MenuItem>
-          <LinkWrapper>
-            <Link to="/dashboard/pratice">
-              <FontAwesomeIcon icon={faGuitar} />
-              <LinkText>Praticar</LinkText>
-            </Link>
-          </LinkWrapper>
-        </MenuItem>
-
         <MenuItem>
           <LinkWrapper>
             <Link to="/logout">

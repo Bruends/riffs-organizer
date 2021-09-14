@@ -14,7 +14,7 @@ import {
 
 import { ContentWrapper, LoopsContainer } from './style'
 
-function Pratice({ musics, apiRequest, apiStates }) {
+function Pratice({ apiRequest, apiStates }) {
   const [music, setMusic] = React.useState({ video: '', loops: [] })
   const [modal, setModal] = React.useState(false)
   const [autoplay, setautoPlay] = React.useState(0)
@@ -22,10 +22,11 @@ function Pratice({ musics, apiRequest, apiStates }) {
 
   const { id } = useParams()
 
-  React.useEffect(() => {
+  React.useEffect(async () => {
+    const musics = await apiRequest.allMusics()
     const foundMusic = musics.filter((music) => music._id == id)
     setMusic(foundMusic[0])
-  }, [musics])
+  }, [modal])
 
   console.log(id)
 
