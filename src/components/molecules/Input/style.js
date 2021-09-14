@@ -12,6 +12,7 @@ export const InputStyle = styled.input`
   outline: none;
   border: none;
   width: 100%;
+  ${({ small }) => (small ? 'width: 6rem;' : null)}
   background: transparent;
   margin: 0.2rem auto;
   border: 2px solid transparent;

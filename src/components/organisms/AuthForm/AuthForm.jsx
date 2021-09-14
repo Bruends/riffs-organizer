@@ -6,7 +6,6 @@ import {
   ButtonLinkWrapper,
   LoginContainer,
   LoginLeftBg,
-  ErrorSpan,
 } from './style'
 import { Link } from 'react-router-dom'
 

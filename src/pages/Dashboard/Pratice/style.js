@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const ContentWrapper = styled.div`
+  align-items: center;
   padding: 2rem 1rem;
   margin: 1rem auto;
   max-width: 95%;
@@ -9,6 +10,19 @@ export const ContentWrapper = styled.div`
   text-align: center;
   min-height: 35rem;
   border-radius: 1rem;
+
+  div {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  a {
+    color: #fff;
+    margin-right: 1rem;
+    text-decoration: none;
+  }
 `
 
 export const LoopsContainer = styled.div`
@@ -19,6 +33,7 @@ export const LoopsContainer = styled.div`
   align-items: center;
   margin: 1rem auto;
   justify-content: center;
+  min-width: 15rem;
   max-width: 32rem;
   * {
     margin: 0.2rem;

@@ -8,6 +8,22 @@ import {
   faExclamationCircle,
 } from '@fortawesome/free-solid-svg-icons'
 
+// cor e icone de acordo com o tipo do alerta
+const alertConfig = {
+  success: {
+    color: '--success-color',
+    icon: faCheckCircle,
+  },
+  error: {
+    color: '--error-color',
+    icon: faExclamationCircle,
+  },
+  info: {
+    color: '--info-color',
+    icon: faInfoCircle,
+  },
+}
+
 const Alert = ({ message, type = 'info' }) => {
   const [alert, setAlert] = React.useState(false)
 
@@ -19,22 +35,6 @@ const Alert = ({ message, type = 'info' }) => {
       }, 6000)
     }
   }, [message])
-
-  // cor e icone de acordo com o tipo do alerta
-  const alertConfig = {
-    success: {
-      color: '--success-color',
-      icon: faCheckCircle,
-    },
-    error: {
-      color: '--error-color',
-      icon: faExclamationCircle,
-    },
-    info: {
-      color: '--info-color',
-      icon: faInfoCircle,
-    },
-  }
 
   return (
     <AlertStyled showAlert={alert} color={alertConfig[type].color}>

@@ -1,5 +1,7 @@
-export const convertToSeconds = (time) => {
-  const timeArray = time.split(':')
-  const seconds = parseInt(timeArray[0]) * 60 + parseInt(timeArray[1])
-  return seconds
+export const convertToSeconds = (minutes, seconds) => {
+  const minutesInSeconds = parseInt(minutes) * 60
+
+  if (minutesInSeconds > 0) return minutesInSeconds + parseInt(seconds)
+
+  return parseInt(seconds)
 }

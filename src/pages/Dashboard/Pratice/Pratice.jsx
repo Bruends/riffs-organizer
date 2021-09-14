@@ -3,13 +3,16 @@ import { useParams } from 'react-router-dom'
 import YouTube from 'react-youtube'
 import EditLoops from '../EditLoops/EditLoops'
 import Button from '../../../components/atoms/Button/Button'
-import Input from '../../../components/molecules/Input/Input'
 
 // icones font awesome
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-import { faPlay, faRedo, faPaintBrush } from '@fortawesome/free-solid-svg-icons'
+import {
+  faGuitar,
+  faRedo,
+  faPaintBrush,
+} from '@fortawesome/free-solid-svg-icons'
 
-import { ContentWrapper, LoopsContainer, LoopControlContainer } from './style'
+import { ContentWrapper, LoopsContainer } from './style'
 
 function Pratice({ musics, apiRequest, apiStates }) {
   const [music, setMusic] = React.useState({ video: '', loops: [] })
@@ -55,6 +58,7 @@ function Pratice({ musics, apiRequest, apiStates }) {
       />
 
       <ContentWrapper>
+        {/* Video */}
         <h1>{music.title}</h1>
         <YouTube
           videoId={music.video.split('=')[1]}
@@ -64,15 +68,24 @@ function Pratice({ musics, apiRequest, apiStates }) {
           }}
         />
 
-        <Button
-          color="--info-color"
-          onClick={() => {
-            setModal(true)
-          }}
-        >
-          <Icon icon={faPaintBrush} /> &nbsp; Editar Loops
-        </Button>
+        {/* Botões de Tablatura e Gerenciamento de Loops */}
+        <div>
+          {music.tab ? (
+            <a target="_blank" href={music.tab} color="--main-color">
+              <Icon icon={faGuitar} /> &nbsp; Tablatura
+            </a>
+          ) : null}
+          <Button
+            color="--main-color"
+            onClick={() => {
+              setModal(true)
+            }}
+          >
+            <Icon icon={faPaintBrush} /> &nbsp; Gerenciar Loops
+          </Button>
+        </div>
 
+        {/* Loops */}
         {music.loops.length > 0 ? (
           <div>
             <LoopsContainer>

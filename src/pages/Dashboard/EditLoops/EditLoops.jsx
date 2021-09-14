@@ -8,22 +8,29 @@ import { convertToSeconds } from '../../../utils/utils'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons'
 
-import { FlexContainer, ButtonWrapper, Title } from './style'
+import {
+  FlexContainer,
+  ButtonWrapper,
+  Title,
+  TimeContainer,
+  TimeSpan,
+  DeleteLoopsWrapper,
+} from './style'
 
 function EditLoops({ loops, _id, modal, setModal, apiRequest }) {
   const [newLoops, setNewLoops] = React.useState([])
   const [title, setTitle] = React.useState('')
-  const [start, setStart] = React.useState('00:00')
-  const [end, setEnd] = React.useState('00:00')
-
-  console.log(newLoops)
+  const [startMin, setStartMin] = React.useState(0)
+  const [startSec, setStartSec] = React.useState(0)
+  const [endMin, setEndMin] = React.useState(0)
+  const [endSec, setEndSec] = React.useState(0)
 
   const handleAddLoop = (event) => {
     event.preventDefault()
     const newLoop = {
       title,
-      start: convertToSeconds(start),
-      end: convertToSeconds(end),
+      start: convertToSeconds(startMin, startSec),
+      end: convertToSeconds(endMin, endSec),
     }
     setNewLoops([newLoop, ...newLoops])
   }
@@ -41,46 +48,87 @@ function EditLoops({ loops, _id, modal, setModal, apiRequest }) {
 
   React.useEffect(() => {
     setNewLoops(loops)
-  }, [loops])
+  }, [loops, modal])
 
   return (
     <Modal isModalOpen={modal} setModalOpen={setModal} noImg={true}>
       <Title>Novo Loop</Title>
       <form onSubmit={handleAddLoop}>
         <FlexContainer>
-          <Input
-            label="Ínicio"
-            type="text"
-            value={start}
-            onChange={({ target }) => {
-              setStart(target.value)
-            }}
-            placeholder="00:00"
-            required
-            pattern="([0-5][0-9]):[0-5][0-9]"
-          />
+          <div>
+            <Input
+              label="Título"
+              type="text"
+              value={title}
+              onChange={({ target }) => {
+                setTitle(target.value)
+              }}
+              required
+            />
+          </div>
+          {/* inputs começo do loop */}
+          <div>
+            <TimeSpan>Começo do Loop: </TimeSpan>
+            <TimeContainer>
+              <Input
+                label="Mins"
+                min="0"
+                max="59"
+                type="number"
+                small={true}
+                value={startMin}
+                onChange={({ target }) => {
+                  setStartMin(target.value)
+                }}
+                required
+              />
 
-          <Input
-            label="Fim (Opcional)"
-            value={end}
-            onChange={({ target }) => {
-              setEnd(target.value)
-            }}
-            step="1"
-            placeholder="00:00"
-            pattern="([0-5][0-9]):[0-5][0-9]"
-          />
+              <Input
+                label="Secs"
+                min="0"
+                max="59"
+                small={true}
+                value={startSec}
+                onChange={({ target }) => {
+                  setStartSec(target.value)
+                }}
+                type="number"
+                step="1"
+              />
+            </TimeContainer>
 
-          <Input
-            label="Título"
-            type="text"
-            value={title}
-            onChange={({ target }) => {
-              setTitle(target.value)
-            }}
-            required
-          />
+            {/* inputs Fim do loop */}
+            <TimeSpan>Fim do Loop: </TimeSpan>
+            <TimeContainer>
+              <Input
+                label="Mins"
+                min="0"
+                max="59"
+                type="number"
+                small={true}
+                value={endMin}
+                onChange={({ target }) => {
+                  setEndMin(target.value)
+                }}
+                required
+              />
+
+              <Input
+                label="Secs"
+                min="0"
+                max="59"
+                small={true}
+                value={endSec}
+                onChange={({ target }) => {
+                  setEndSec(target.value)
+                }}
+                type="number"
+                step="1"
+              />
+            </TimeContainer>
+          </div>
         </FlexContainer>
+
         <Button type="submit" color="--success-color">
           Adicionar &nbsp;
           <Icon icon={faPlus} />
@@ -90,7 +138,7 @@ function EditLoops({ loops, _id, modal, setModal, apiRequest }) {
       {newLoops.length > 0 ? (
         <>
           <Title>Deletar Loops</Title>
-          <FlexContainer>
+          <DeleteLoopsWrapper>
             {newLoops.map((loop, i) => (
               <Button
                 key={i}
@@ -103,7 +151,7 @@ function EditLoops({ loops, _id, modal, setModal, apiRequest }) {
                 <Icon icon={faTrash} />
               </Button>
             ))}
-          </FlexContainer>
+          </DeleteLoopsWrapper>
         </>
       ) : null}
 

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const ModalBackground = styled.div`
   display: ${(props) => (props.isModalOpen ? 'block' : 'none')};
   z-index: 20;
-  position: fixed;
+  position: absolute;
   min-height: 100vh;
   width: 100vw;
   top: 0;
