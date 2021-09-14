@@ -5,3 +5,10 @@ export const convertToSeconds = (minutes, seconds) => {
 
   return parseInt(seconds)
 }
+
+export const caseInsensitiveSearch = (search, content) => {
+  const searchLoweCase = search.toLowerCase()
+  const contentLowerCase = content.toLowerCase()
+
+  return contentLowerCase.includes(searchLoweCase)
+}

@@ -3,6 +3,7 @@ import { ContentWrapper, Wrapper } from './Style'
 import TopToolBar from '../components/TopToolBar/TopToolBar'
 import AddModalForm from '../../../components/organisms/ModalForm/ModalForm'
 import Music from '../components/Music/Music'
+import { caseInsensitiveSearch } from '../../../utils/utils'
 
 function AllMusics({ musics, setMusics, apiRequest, apiStates }) {
   const [search, setSearch] = React.useState('')
@@ -36,7 +37,7 @@ function AllMusics({ musics, setMusics, apiRequest, apiStates }) {
           {search
             ? // resultado da pesquisa
               musics.map((music) => {
-                if (music.title.includes(search))
+                if (caseInsensitiveSearch(search, music.title))
                   return <Music key={music._id} {...music} />
               })
             : // todos as musicas
