@@ -14,18 +14,18 @@ const useAuth = () => {
     try {
       // objeto de configuração de chamada de api
       const { url, options } = POST_LOGIN(username, password)
-      const { token } = await request(url, options)
+      const { token, error } = await request(url, options)
 
-      if (apiErrorMessage) {
-        toast.error(apiErrorMessage)
+      console.log('useAuth: ' + apiErrorMessage)
+
+      if (error) {
+        toast.error(error)
         return
       }
 
       setStorage(token)
       setAuth(true)
     } catch (error) {
-      console.log(error.message)
-
       toast.error('erro ao Logar')
     }
   }, [])
@@ -33,14 +33,14 @@ const useAuth = () => {
   const signup = async (username, email, password) => {
     try {
       const { url, options } = POST_REGISTER(username, email, password)
-      const response = await request(url, options)
+      const { error } = await request(url, options)
 
-      if (response.error) {
+      if (error) {
         toast.error(apiErrorMessage)
         return
       }
 
-      if (!apiErrorMessage) toast.success('Registrado com Sucesso !')
+      toast.success('Registrado com Sucesso !')
     } catch (error) {
       console.log(error.message)
       toast.error('erro ao Registrar')

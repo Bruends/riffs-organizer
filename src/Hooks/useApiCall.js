@@ -6,6 +6,7 @@ const useApiCall = () => {
   const [data, setData] = React.useState('')
   const [loading, setLoading] = React.useState(false)
   const [apiErrorMessage, setApiErrorMessage] = React.useState(null)
+
   const [token, setToken] = useLocalStorage('token', '')
 
   const request = React.useCallback(async (url, options) => {
@@ -20,16 +21,14 @@ const useApiCall = () => {
 
       if (json.auth === false) setToken('')
 
-      console.log(response.status)
-
       if (!response.ok) {
-        throw new Error(json.error)
+        setApiErrorMessage(json.error)
       }
 
       log('response', 'table', response)
     } catch (error) {
       json = null
-      log('Erro na Requisição Api', 'error', error)
+      log('Erro na Requisição Api', 'error', error.headers.status)
     } finally {
       setData(json)
       setLoading(false)
