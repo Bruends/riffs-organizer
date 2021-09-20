@@ -6,7 +6,6 @@ const useApiCall = () => {
   const [data, setData] = React.useState('')
   const [loading, setLoading] = React.useState(false)
   const [apiErrorMessage, setApiErrorMessage] = React.useState(null)
-
   const [token, setToken] = useLocalStorage('token', '')
 
   const request = React.useCallback(async (url, options) => {

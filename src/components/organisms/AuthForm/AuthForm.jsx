@@ -56,6 +56,7 @@ function AuthForm({ title, submit, type }) {
             onChange={({ target }) => setPassword(target.value)}
             label="Senha: "
             type="password"
+            minlength="8"
             required
           />
 
@@ -63,7 +64,7 @@ function AuthForm({ title, submit, type }) {
             <Button type="submit">{title}</Button>
 
             {type === 'register' ? (
-              <Link to="/">Logar</Link>
+              <Link to="/login">Logar</Link>
             ) : (
               <Link to="/signup">Registrar</Link>
             )}

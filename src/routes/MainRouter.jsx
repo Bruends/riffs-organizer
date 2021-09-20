@@ -2,6 +2,7 @@ import React from 'react'
 import Login from '../pages/Login/Login'
 import SignUp from '../pages/SignUp/SignUp'
 import Dashboard from '../pages/Dashboard/Dashboard'
+import LandingPage from '../pages/LandingPage/LandingPage'
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,6 +23,9 @@ function MainRouter() {
     <Router>
       <Switch>
         <Route exact path="/">
+          <LandingPage />
+        </Route>
+        <Route path="/login">
           {!auth ? <Login login={login} /> : <Redirect to="/dashboard" />}
         </Route>
         <Route path="/signup">
