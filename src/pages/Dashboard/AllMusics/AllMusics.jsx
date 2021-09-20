@@ -1,4 +1,5 @@
 import React from 'react'
+import { ToastContainer, toast } from 'react-toastify'
 import { ContentWrapper, Wrapper } from './Style'
 import TopToolBar from '../components/TopToolBar/TopToolBar'
 import AddModalForm from '../../../components/organisms/ModalForm/ModalForm'
@@ -12,13 +13,16 @@ function AllMusics({ musics, setMusics, apiRequest, apiStates }) {
   React.useEffect(() => {
     const fetchMusics = async () => {
       const apiMusics = await apiRequest.allMusics()
-      if (apiMusics) setMusics(apiMusics)
+      if (apiMusics) {
+        setMusics(apiMusics)
+      }
     }
     fetchMusics()
   }, [apiStates.refresh])
 
   return (
     <>
+      {/* Modal */}
       <AddModalForm
         modalTitle="Nova Música"
         modal={addModal}
@@ -27,12 +31,13 @@ function AllMusics({ musics, setMusics, apiRequest, apiStates }) {
         buttonTitle="Salvar"
       />
       <Wrapper>
+        {/* pesquisa e botão adicionar  */}
         <TopToolBar
           search={search}
           setSearch={setSearch}
           addModal={setaddModal}
         />
-
+        {/* Container Musicas */}
         <ContentWrapper>
           {search
             ? // resultado da pesquisa
@@ -40,7 +45,7 @@ function AllMusics({ musics, setMusics, apiRequest, apiStates }) {
                 if (caseInsensitiveSearch(search, music.title))
                   return <Music key={music._id} {...music} />
               })
-            : // todos as musicas
+            : // todas as musicas
               musics.map((music) => <Music key={music._id} {...music} />)}
         </ContentWrapper>
       </Wrapper>

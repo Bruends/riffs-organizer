@@ -56,7 +56,8 @@ export const ButtonLinkWrapper = styled.div`
   justify-content: space-between;
 
   a {
-    color: var(--main-color);
+    color: #fff;
+    text-decoration: none;
   }
 `
 

@@ -6,13 +6,7 @@ import EditMusic from './EditMusic/EditMusic'
 import DeleteMusic from './DeleteMusic/DeleteMusic'
 import Pratice from './Pratice/Pratice'
 
-function DashboardRoutes({
-  musics,
-  setMusics,
-  setAlert,
-  apiRequest,
-  apiStates,
-}) {
+function DashboardRoutes({ musics, setMusics, apiRequest, apiStates }) {
   let { path } = useRouteMatch()
 
   return (
@@ -22,7 +16,6 @@ function DashboardRoutes({
           <AllMusics
             musics={musics}
             setMusics={setMusics}
-            setAlert={setAlert}
             apiRequest={apiRequest}
             apiStates={apiStates}
           />
@@ -55,7 +48,6 @@ function DashboardRoutes({
           <AllMusics
             musics={musics}
             setMusics={setMusics}
-            setAlert={setAlert}
             apiRequest={apiRequest}
             apiStates={apiStates}
           />

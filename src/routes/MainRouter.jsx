@@ -12,7 +12,7 @@ import {
 import useAuth from '../Hooks/useAuth'
 
 function MainRouter() {
-  const { auth, login, logout, verifyStorageToken } = useAuth()
+  const { auth, login, signup, logout, verifyStorageToken } = useAuth()
 
   React.useEffect(() => {
     verifyStorageToken()
@@ -25,7 +25,7 @@ function MainRouter() {
           {!auth ? <Login login={login} /> : <Redirect to="/dashboard" />}
         </Route>
         <Route path="/signup">
-          <SignUp />
+          <SignUp signup={signup} />
         </Route>
         {/* Rota protegida por autenticação*/}
         <Route path="/dashboard">

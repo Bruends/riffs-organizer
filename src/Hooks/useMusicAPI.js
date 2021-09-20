@@ -1,4 +1,5 @@
 import React from 'react'
+import { toast } from 'react-toastify'
 import useApiCall from './useApiCall'
 import {
   GET_CONFIG,
@@ -10,58 +11,69 @@ import {
 import useLocalStorage from './useLocalStorage'
 
 export const useMusicAPI = () => {
-  const { request, loading, error } = useApiCall()
+  const { request, loading, apiErrorMessage } = useApiCall()
   const [refresh, setRefresh] = React.useState(false)
-  const [message, setMessage] = React.useState(false)
   const [token] = useLocalStorage('token', '')
 
   const allMusics = async () => {
     if (token) {
-      const { url, options } = GET_CONFIG(token)
-      const musics = await request(url, options)
+      try {
+        const { url, options } = GET_CONFIG(token)
+        const musics = await request(url, options)
 
-      return musics
+        return musics
+      } catch (error) {
+        toast.error('Erro ao carregar Músicas')
+      }
     }
   }
 
   const addMusic = async (music) => {
-    const { url, options } = ADD_CONFIG(token, music)
-    await request(url, options)
+    try {
+      const { url, options } = ADD_CONFIG(token, music)
+      await request(url, options)
 
-    if (!error)
-      setMessage({ message: 'Adicionado com Sucesso!', type: 'success' })
-
-    setRefresh(!refresh)
+      toast.success('Música Adicionada com Sucesso !')
+      setRefresh(!refresh)
+    } catch (error) {
+      toast.error('Erro ao adicionar Música')
+    }
   }
 
   const updateMusic = async (music) => {
-    const { url, options } = UPDATE_CONFIG(token, music)
-    await request(url, options)
+    try {
+      const { url, options } = UPDATE_CONFIG(token, music)
+      await request(url, options)
 
-    if (!error)
-      setMessage({ message: 'Alterado com Sucesso!', type: 'success' })
-
-    setRefresh(!refresh)
+      toast.success('Música editada com Sucesso !')
+      setRefresh(!refresh)
+    } catch (error) {
+      toast.error('Erro ao editar')
+    }
   }
 
   const deleteMusic = async (_id) => {
-    const { url, options } = DELETE_CONFIG(token, _id)
-    await request(url, options)
+    try {
+      const { url, options } = DELETE_CONFIG(token, _id)
+      await request(url, options)
 
-    if (!error)
-      setMessage({ message: 'Deletado com Sucesso!', type: 'success' })
-
-    setRefresh(!refresh)
+      toast.success('Música deletada com Sucesso !')
+      setRefresh(!refresh)
+    } catch (error) {
+      toast.error('Erro ao deletar')
+    }
   }
 
   const updateLoops = async (_id, loops) => {
-    const { url, options } = UPDATE_LOOPS(token, _id, loops)
-    await request(url, options)
+    try {
+      const { url, options } = UPDATE_LOOPS(token, _id, loops)
+      await request(url, options)
 
-    if (!error)
-      setMessage({ message: 'Loops Salvos com Sucesso!', type: 'success' })
-
-    setRefresh(!refresh)
+      toast.success('Loops Atualizados com Sucesso !')
+      setRefresh(!refresh)
+    } catch (error) {
+      toast.error('Erro ao atualizar loops')
+    }
   }
 
   return {
@@ -72,6 +84,6 @@ export const useMusicAPI = () => {
       updateMusic,
       updateLoops,
     },
-    apiStates: { refresh, loading, error, message },
+    apiStates: { refresh, loading },
   }
 }
