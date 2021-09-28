@@ -2,8 +2,10 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    --main-color: #16C79A;    
     --main-color: #610094;    
+    --main-color: #16C79A;   
+    --main-color: #28ABB9; 
+    
     --main-font: 'Roboto', 'Helvetica';
     // dashboard  
     --dash-menubg: #161616;   
@@ -14,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
     // alerts
     --success-color: #57CC99;
     --error-color: #FF4848;
+    --cancel-color: #FF4848;
     --info-color: #39A2DB;
 
     //card

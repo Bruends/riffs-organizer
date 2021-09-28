@@ -1,7 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import YouTube from 'react-youtube'
-import EditLoops from '../EditLoops/EditLoops'
+import AddLoop from '../AddLoop/AddLoop'
+import DeleteLoop from '../DeleteLoop/DeleteLoop'
 import Button from '../../../components/atoms/Button/Button'
 
 // icones font awesome
@@ -9,14 +10,16 @@ import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import {
   faGuitar,
   faRedo,
-  faPaintBrush,
+  faPlus,
+  faTrash,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { ContentWrapper, LoopsContainer } from './style'
 
 function Pratice({ apiRequest, apiStates }) {
   const [music, setMusic] = React.useState({ video: '', loops: [] })
-  const [modal, setModal] = React.useState(false)
+  const [addLoopModal, setAddLoopModal] = React.useState(false)
+  const [deleteLoopModal, setDeleteLoopModal] = React.useState(false)
   const [autoplay, setautoPlay] = React.useState(0)
   const [loop, setLoop] = React.useState({ start: 0, end: 0 })
 
@@ -26,7 +29,7 @@ function Pratice({ apiRequest, apiStates }) {
     const musics = await apiRequest.allMusics()
     const foundMusic = musics.filter((music) => music._id == id)
     setMusic(foundMusic[0])
-  }, [modal])
+  }, [addLoopModal, deleteLoopModal])
 
   console.log(id)
 
@@ -48,9 +51,19 @@ function Pratice({ apiRequest, apiStates }) {
 
   return (
     <>
-      <EditLoops
-        modal={modal}
-        setModal={setModal}
+      <AddLoop
+        modal={addLoopModal}
+        setModal={setAddLoopModal}
+        noImg={true}
+        _id={id}
+        loops={music.loops}
+        apiRequest={apiRequest}
+        apiStates={apiStates}
+      />
+
+      <DeleteLoop
+        modal={deleteLoopModal}
+        setModal={setDeleteLoopModal}
         noImg={true}
         _id={id}
         loops={music.loops}
@@ -69,21 +82,32 @@ function Pratice({ apiRequest, apiStates }) {
           }}
         />
 
-        {/* Botões de Tablatura e Gerenciamento de Loops */}
+        {/* Botões de Tablatura e adição e remoção de Loops */}
         <div>
           {music.tab ? (
             <a target="_blank" href={music.tab} color="--main-color">
               <Icon icon={faGuitar} /> &nbsp; Tablatura
             </a>
           ) : null}
+
           <Button
             color="--main-color"
             onClick={() => {
-              setModal(true)
+              setAddLoopModal(true)
             }}
           >
-            <Icon icon={faPaintBrush} /> &nbsp; Gerenciar Loops
+            <Icon icon={faPlus} /> &nbsp; Adicionar Loop
           </Button>
+          {music.loops.length > 0 ? (
+            <Button
+              color="--error-color"
+              onClick={() => {
+                setDeleteLoopModal(true)
+              }}
+            >
+              <Icon icon={faTrash} /> &nbsp; Deletar Loops
+            </Button>
+          ) : null}
         </div>
 
         {/* Loops */}
