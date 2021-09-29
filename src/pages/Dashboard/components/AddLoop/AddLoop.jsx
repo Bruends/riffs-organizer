@@ -1,12 +1,8 @@
 import React from 'react'
-import Input from '../../../components/molecules/Input/Input'
-import Button from '../../../components/atoms/Button/Button'
-import Modal from '../../../components/molecules/Modal/Modal'
-import { convertToSeconds } from '../../../utils/utils'
-
-// icones font awesome
-import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons'
+import Input from '../../../../components/molecules/Input/Input'
+import Button from '../../../../components/atoms/Button/Button'
+import Modal from '../../../../components/molecules/Modal/Modal'
+import { convertToSeconds } from '../../../../utils/utils'
 
 import {
   FlexContainer,
@@ -14,7 +10,6 @@ import {
   Title,
   TimeContainer,
   TimeSpan,
-  DeleteLoopsWrapper,
 } from './style'
 
 function AddLoop({ loops, _id, modal, setModal, apiRequest }) {
@@ -35,10 +30,6 @@ function AddLoop({ loops, _id, modal, setModal, apiRequest }) {
     apiRequest.updateLoops(_id, [newLoop, ...loops])
     setModal(false)
   }
-
-  React.useEffect(() => {
-    //setNewLoops(loops)
-  }, [loops, modal])
 
   return (
     <Modal isModalOpen={modal} setModalOpen={setModal} noImg={true}>
@@ -118,9 +109,9 @@ function AddLoop({ loops, _id, modal, setModal, apiRequest }) {
             </TimeContainer>
           </div>
         </FlexContainer>
-
+        {/* Botões salvar e cancelar */}
         <ButtonWrapper>
-          <Button type="submit" color="--success-color">
+          <Button type="submit" color="--main-color">
             Adicionar &nbsp;
           </Button>
           <Button

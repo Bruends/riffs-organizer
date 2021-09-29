@@ -2,8 +2,8 @@ import React from 'react'
 import { ContentWrapper } from './style'
 import AllMusics from './AllMusics/AllMusics'
 import { Switch, Route, useRouteMatch } from 'react-router-dom'
-import EditMusic from './EditMusic/EditMusic'
-import DeleteMusic from './DeleteMusic/DeleteMusic'
+import EditMusic from './components/EditMusic/EditMusic'
+import DeleteMusic from './components/DeleteMusic/DeleteMusic'
 import Pratice from './Pratice/Pratice'
 
 function DashboardRoutes({ musics, setMusics, apiRequest, apiStates }) {

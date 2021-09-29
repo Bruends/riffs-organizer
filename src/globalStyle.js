@@ -1,25 +1,21 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-  :root {
-    --main-color: #610094;    
-    --main-color: #16C79A;   
-    --main-color: #28ABB9; 
+  :root {      
+    --main-color: #8236CB; 
     
-    --main-font: 'Roboto', 'Helvetica';
+    --main-font: 'Montserrat', 'Helvetica';
     // dashboard  
-    --dash-menubg: #161616;   
-    --dash-bg: #e7e4d8; 
-    --dash-bg: #121013; 
+    --dash-menubg: #161616;        
     --dash-bg: #222; 
 
-    // alerts
+    // details
     --success-color: #57CC99;
     --error-color: #FF4848;
-    --cancel-color: #FF4848;
+    --cancel-color: #999;
     --info-color: #39A2DB;
 
-    //card
+    // card
     --card-bg: #222;
   }
 

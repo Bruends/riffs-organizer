@@ -5,6 +5,7 @@ export const ModalBackground = styled.div`
   z-index: 20;
   position: absolute;
   min-height: 100vh;
+  height: 100%;
   width: 100vw;
   top: 0;
   left: 0;

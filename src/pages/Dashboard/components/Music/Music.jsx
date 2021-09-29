@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   Wrapper,
-  MusicLink,
   SideDetail,
   Title,
   ButtonsWrapper,
@@ -26,13 +25,6 @@ function Music({ title, _id, tab, video }) {
 
       <ContentWrapper>
         <Title>{title}</Title>
-
-        {/* <MusicLink>
-            <Link to={`dashboard/pratice/${_id}`}>
-              <Icon icon={faPlay} /> Praticar
-            </Link>
-          </MusicLink> */}
-
         <ButtonsWrapper>
           <Link to={`dashboard/pratice/${_id}`}>
             <Icon icon={faPlay} /> Praticar

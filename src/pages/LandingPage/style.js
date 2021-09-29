@@ -11,7 +11,7 @@ export const Wrapper = styled.section`
   opacity: 0.9;
 `
 
-export const Background = styled.div`
+export const Background = styled.section`
   outline: 2px solid var(--main-color);
   outline-offset: -2rem;
   display: flex;

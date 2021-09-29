@@ -21,7 +21,7 @@ function AllMusics({ musics, setMusics, apiRequest, apiStates }) {
   }, [apiStates.refresh])
 
   return (
-    <>
+    <section>
       {/* Modal */}
       <AddModalForm
         modalTitle="Nova Música"
@@ -38,18 +38,21 @@ function AllMusics({ musics, setMusics, apiRequest, apiStates }) {
           addModal={setaddModal}
         />
         {/* Container Musicas */}
-        <ContentWrapper>
-          {search
-            ? // resultado da pesquisa
-              musics.map((music) => {
-                if (caseInsensitiveSearch(search, music.title))
-                  return <Music key={music._id} {...music} />
-              })
-            : // todas as musicas
-              musics.map((music) => <Music key={music._id} {...music} />)}
-        </ContentWrapper>
+
+        <main>
+          <ContentWrapper>
+            {search
+              ? // resultado da pesquisa
+                musics.map((music) => {
+                  if (caseInsensitiveSearch(search, music.title))
+                    return <Music key={music._id} {...music} />
+                })
+              : // todas as musicas
+                musics.map((music) => <Music key={music._id} {...music} />)}
+          </ContentWrapper>
+        </main>
       </Wrapper>
-    </>
+    </section>
   )
 }
 

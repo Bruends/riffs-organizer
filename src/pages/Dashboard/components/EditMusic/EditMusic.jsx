@@ -1,5 +1,5 @@
 import React from 'react'
-import EditModalForm from '../../../components/organisms/ModalForm/ModalForm'
+import EditModalForm from '../../../../components/organisms/ModalForm/ModalForm'
 import { useParams } from 'react-router-dom'
 
 function EditMusic({ musics, updateMusic }) {

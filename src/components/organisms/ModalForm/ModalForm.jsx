@@ -66,7 +66,7 @@ function ModalForm({ music, submit, modal, setModal, modalTitle }) {
 
         <ButtonWrapper>
           <Button type="submit">salvar</Button>
-          <Button color="--error-color" onClick={handleCancel}>
+          <Button color="--cancel-color" onClick={handleCancel}>
             Cancelar
           </Button>
         </ButtonWrapper>

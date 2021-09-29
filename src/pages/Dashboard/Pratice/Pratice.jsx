@@ -1,8 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import YouTube from 'react-youtube'
-import AddLoop from '../AddLoop/AddLoop'
-import DeleteLoop from '../DeleteLoop/DeleteLoop'
+import AddLoop from '../components/AddLoop/AddLoop'
+import DeleteLoop from '../components/DeleteLoop/DeleteLoop'
 import Button from '../../../components/atoms/Button/Button'
 
 // icones font awesome

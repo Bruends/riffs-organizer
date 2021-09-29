@@ -26,24 +26,26 @@ const Menu = () => {
         <span>Guitar</span>
       </LogoContainer>
 
-      <MenuContainer>
-        <MenuItem>
-          <LinkWrapper>
-            <Link to="/dashboard">
-              <FontAwesomeIcon icon={faMusic} />
-              <LinkText>Músicas</LinkText>
-            </Link>
-          </LinkWrapper>
-        </MenuItem>
-        <MenuItem>
-          <LinkWrapper>
-            <Link to="/logout">
-              <FontAwesomeIcon icon={faArrowAltCircleLeft} />
-              <LinkText>Logout</LinkText>
-            </Link>
-          </LinkWrapper>
-        </MenuItem>
-      </MenuContainer>
+      <nav>
+        <MenuContainer>
+          <MenuItem>
+            <LinkWrapper>
+              <Link to="/dashboard">
+                <FontAwesomeIcon icon={faMusic} />
+                <LinkText>Músicas</LinkText>
+              </Link>
+            </LinkWrapper>
+          </MenuItem>
+          <MenuItem>
+            <LinkWrapper>
+              <Link to="/logout">
+                <FontAwesomeIcon icon={faArrowAltCircleLeft} />
+                <LinkText>Logout</LinkText>
+              </Link>
+            </LinkWrapper>
+          </MenuItem>
+        </MenuContainer>
+      </nav>
     </NavContainer>
   )
 }

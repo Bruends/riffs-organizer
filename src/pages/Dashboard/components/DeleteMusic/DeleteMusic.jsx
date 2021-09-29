@@ -1,7 +1,7 @@
 import React from 'react'
-import Modal from '../../../components/molecules/Modal/Modal'
+import Modal from '../../../../components/molecules/Modal/Modal'
 import { useParams } from 'react-router-dom'
-import Button from '../../../components/atoms/Button/Button'
+import Button from '../../../../components/atoms/Button/Button'
 import { useHistory } from 'react-router-dom'
 
 import { ButtonsWrapper, Title } from './style'
@@ -30,7 +30,9 @@ function DeleteMusic({ deleteMusic }) {
           <Button color="--error-color" onClick={handleDelete}>
             Deletar
           </Button>
-          <Button onClick={handleCancel}>Cancelar</Button>
+          <Button color="--cancel-color" onClick={handleCancel}>
+            Cancelar
+          </Button>
         </ButtonsWrapper>
       </div>
     </Modal>

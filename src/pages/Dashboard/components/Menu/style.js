@@ -13,6 +13,7 @@ export const NavContainer = styled.div`
   top: 0;
 
   @media (max-width: 768px) {
+    border: none;
     position: fixed;
     z-index: 10;
     flex-direction: row;
@@ -51,6 +52,7 @@ export const MenuContainer = styled.ul`
   @media (max-width: 768px) {
     border-right: none;
     border-top: 4px solid var(--main-color);
+    border-right: none;
     width: 100%;
     flex-direction: row;
     justify-content: space-around;

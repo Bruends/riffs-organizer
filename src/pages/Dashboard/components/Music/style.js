@@ -13,11 +13,18 @@ export const Wrapper = styled.div`
 
 export const ContentWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 0.6rem 1.5rem;
   text-align: center;
   flex: 1;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `
 
 export const SideDetail = styled.div`
@@ -34,18 +41,6 @@ export const SideDetail = styled.div`
 export const Title = styled.h1`
   color: #fff;
   text-align: center;
-
-  /* &::after {
-    content: '';
-    display: block;
-    width: 2rem;
-    height: 0.1rem;
-    background-color: #fff;
-    margin: 0 auto;
-    position: relative;
-    top: 0.3rem;
-    border-radius: 10px;
-  } */
 `
 
 export const MusicLink = styled.div`
@@ -57,9 +52,6 @@ export const MusicLink = styled.div`
     text-decoration: none;
     max-width: 8rem;
     border-radius: 1rem;
-
-    &:hover {
-    }
   }
 `
 

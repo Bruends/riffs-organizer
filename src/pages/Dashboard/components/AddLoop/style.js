@@ -16,11 +16,6 @@ export const ButtonWrapper = styled.div`
   justify-content: flex-end;
   align-items: center;
 `
-
-export const DeleteLoopsWrapper = styled(ButtonWrapper)`
-  justify-content: center;
-`
-
 export const TimeSpan = styled.span`
   display: block;
   margin: 1rem 0 -1rem 0;

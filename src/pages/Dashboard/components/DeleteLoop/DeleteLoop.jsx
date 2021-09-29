@@ -1,29 +1,15 @@
 import React from 'react'
-import Input from '../../../components/molecules/Input/Input'
-import Button from '../../../components/atoms/Button/Button'
-import Modal from '../../../components/molecules/Modal/Modal'
-import { convertToSeconds } from '../../../utils/utils'
+import Button from '../../../../components/atoms/Button/Button'
+import Modal from '../../../../components/molecules/Modal/Modal'
 
 // icones font awesome
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
-import {
-  FlexContainer,
-  ButtonWrapper,
-  Title,
-  TimeContainer,
-  TimeSpan,
-  DeleteLoopsWrapper,
-} from './style'
+import { ButtonWrapper, Title, DeleteLoopsWrapper } from './style'
 
 function DeleteLoop({ loops, _id, modal, setModal, apiRequest }) {
   const [newLoops, setNewLoops] = React.useState([])
-  const [title, setTitle] = React.useState('')
-  const [startMin, setStartMin] = React.useState(0)
-  const [startSec, setStartSec] = React.useState(0)
-  const [endMin, setEndMin] = React.useState(0)
-  const [endSec, setEndSec] = React.useState(0)
 
   const deleteLoop = (loopIndex) => {
     const removeLoop = newLoops[loopIndex]
@@ -42,10 +28,11 @@ function DeleteLoop({ loops, _id, modal, setModal, apiRequest }) {
 
   return (
     <Modal isModalOpen={modal} setModalOpen={setModal} noImg={true}>
-      <Title>Deletar Loops</Title>
+      <Title>Escolha os Loops para deletar</Title>
       {newLoops.length > 0 ? (
         <>
           <DeleteLoopsWrapper>
+            {/* Loops */}
             {newLoops.map((loop, i) => (
               <Button
                 key={i}
@@ -62,6 +49,7 @@ function DeleteLoop({ loops, _id, modal, setModal, apiRequest }) {
         </>
       ) : null}
 
+      {/* Botões de salvar e cancelar */}
       <ButtonWrapper>
         <Button color="--info-color" onClick={handleSave}>
           Salvar Alterações
@@ -70,7 +58,7 @@ function DeleteLoop({ loops, _id, modal, setModal, apiRequest }) {
           onClick={() => {
             setModal(false)
           }}
-          color="--error-color"
+          color="--cancel-color"
         >
           Cancelar
         </Button>
