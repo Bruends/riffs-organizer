@@ -65,6 +65,7 @@ export const ButtonsWrapper = styled.div`
     padding: 0.6rem 0.6rem;
     background-color: var(--main-color);
     font-size: 0.8rem;
+    font-weight: bold;
     color: #fff;
     box-shadow: none;
     border: none;

@@ -38,7 +38,7 @@ function MainRouter() {
         <Route exact path="/logout">
           {() => {
             logout()
-            return <Redirect to="/" />
+            return <Redirect to="/login" />
           }}
         </Route>
         <Route path="*">

@@ -1,5 +1,4 @@
 import React from 'react'
-import { ToastContainer, toast } from 'react-toastify'
 import { ContentWrapper, Wrapper } from './Style'
 import TopToolBar from '../components/TopToolBar/TopToolBar'
 import AddModalForm from '../../../components/organisms/ModalForm/ModalForm'

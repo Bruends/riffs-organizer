@@ -26,15 +26,10 @@ export const NavContainer = styled.div`
 
 export const LogoContainer = styled.div`
   height: 10rem;
-  font-size: 2rem;
-  font-family: var(--display-font);
-  color: #fff;
+  font-size: 3rem;
+  color: var(--main-color);
   display: flex;
   align-items: center;
-
-  span {
-    display: block;
-  }
 
   @media (max-width: 768px) {
     display: none;
@@ -53,7 +48,7 @@ export const MenuContainer = styled.ul`
     border-right: none;
     border-top: 4px solid var(--main-color);
     border-right: none;
-    width: 100%;
+    width: 100vw;
     flex-direction: row;
     justify-content: space-around;
   }
@@ -75,7 +70,7 @@ export const LinkWrapper = styled.div`
     width: 15rem;
     padding: 1rem;
     align-items: center;
-    color: #e7e4d8;
+    color: #fff;
     font-size: 1.3rem;
     transition: 0.2s;
     text-decoration: none;

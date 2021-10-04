@@ -1,13 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import useAuth from '../../../../Hooks/useAuth'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // icones font awesome
-import {
-  faMusic,
-  faArrowAltCircleLeft,
-} from '@fortawesome/free-solid-svg-icons'
+import { faMusic, faDoorOpen, faFire } from '@fortawesome/free-solid-svg-icons'
 
 // styled components
 import {
@@ -23,7 +19,7 @@ const Menu = () => {
   return (
     <NavContainer>
       <LogoContainer>
-        <span>Guitar</span>
+        <FontAwesomeIcon icon={faFire} />
       </LogoContainer>
 
       <nav>
@@ -39,7 +35,7 @@ const Menu = () => {
           <MenuItem>
             <LinkWrapper>
               <Link to="/logout">
-                <FontAwesomeIcon icon={faArrowAltCircleLeft} />
+                <FontAwesomeIcon icon={faDoorOpen} />
                 <LinkText>Logout</LinkText>
               </Link>
             </LinkWrapper>

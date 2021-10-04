@@ -45,14 +45,14 @@ function ModalForm({ music, submit, modal, setModal, modalTitle }) {
       <Title> {modalTitle} </Title>
       <form onSubmit={handleSubmit}>
         <Input
-          label="Título: "
+          label="*Título: "
           value={title}
           onChange={({ target }) => setTitle(target.value)}
           required
         />
 
         <Input
-          label="Vídeo do Youtube: "
+          label="*Vídeo do Youtube: "
           value={video}
           onChange={({ target }) => setVideo(target.value)}
           required

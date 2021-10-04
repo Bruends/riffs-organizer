@@ -8,11 +8,11 @@ function LandingPage() {
       <Wrapper>
         <Title>Riffs Organizer</Title>
         <Text>
-          Organize Suas Músicas, tablaturas e Riffs. <br /> E facilite seu
+          Organize Suas Músicas, tablaturas e Riffs <br /> e facilite seu
           Aprendizado.
         </Text>
         <ButtonContainer>
-          <Link to="/login">Let's Rock!</Link>
+          <Link to="/login">Logar</Link>
         </ButtonContainer>
       </Wrapper>
     </Background>

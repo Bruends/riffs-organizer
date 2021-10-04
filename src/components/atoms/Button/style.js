@@ -7,6 +7,7 @@ export const ButtonStyle = styled.button`
   padding: 0.6rem 1rem;
   background-color: var(${({ color }) => (color ? color : '--main-color')});
   color: #fff;
+  font-weight: bold;
   box-shadow: none;
   border: none;
   border-radius: 5px;

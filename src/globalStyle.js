@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   :root {      
-    --main-color: #8236CB; 
+    --main-color: #FF4C29; 
     
     --main-font: 'Montserrat', 'Helvetica';
     // dashboard  
@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     // details
     --success-color: #57CC99;
     --error-color: #FF4848;
-    --cancel-color: #999;
+    --cancel-color: #555;
     --info-color: #39A2DB;
 
     // card
