@@ -2,24 +2,17 @@
 
 Um Web APP que desenvolvi para ajudar no meu Hobby (toco Guitarra/baixo). Organizando músicas e tablaturas que estou estudando em um único lugar.
 
-Demonstração:
+#### Demonstração:
+
 ![demonstração do APP](gifs/overview.gif)
 
-Demonstração Mobile:
+#### Demonstração Mobile:
+
 ![demonstração do APP](gifs/overviewm.gif)
 
 ## Tecnologias
 
 - JS
-
-# Guitar Pratice APP
-
-Um Web App em React para organizar as músicas e tablaturas.
-
-![demonstração do APP](gifs/overview.gif)
-
-## Tecnologias
-
 - React
 - Styled Components
 - API do Youtube
