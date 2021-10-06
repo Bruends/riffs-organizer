@@ -1,6 +1,6 @@
 # Guitar Pratice APP :guitar:
 
-Um Web APP que desenvolvi para ajudar no meu Hobby (toco Guitarra/baixo). Organizando músicas e tablaturas que estou estudando em um único lugar.
+Um Web APP que desenvolvi para ajudar no meu Hobby (toco Guitarra/baixo). Organizando músicas e tablaturas que estou estudando.
 
 #### Demonstração:
 
