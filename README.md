@@ -11,6 +11,15 @@ Demonstração Mobile:
 ## Tecnologias
 
 - JS
+
+# Guitar Pratice APP
+
+Um Web App em React para organizar as músicas e tablaturas.
+
+![demonstração do APP](gifs/overview.gif)
+
+## Tecnologias
+
 - React
 - Styled Components
 - API do Youtube
