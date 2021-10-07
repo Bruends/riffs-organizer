@@ -1,4 +1,4 @@
-# Guitar Pratice APP :guitar:
+# Riffs Organizer APP :guitar:
 
 :construction_worker_man: Projeto em Construção :construction_worker_man: 
 
