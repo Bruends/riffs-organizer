@@ -1,5 +1,7 @@
 # Guitar Pratice APP :guitar:
 
+:construction_worker_man: Projeto em Construção :construction_worker_man: 
+
 Um Web APP que desenvolvi para ajudar no meu Hobby (toco Guitarra/baixo). Organizando músicas e tablaturas que estou estudando.
 
 #### Demonstração:
